@@ -114,7 +114,75 @@ public Object realizarOperacion(String string) {
 }
 
 public void gestionExcepciones(){
+    mostrarMensaje("Menú de gestión de excepciones:");
+    mostrarMensaje("1. Ver excepciones registradas.");
+    mostrarMensaje("2. Probar manejo de excepciones.");
+    mostrarMensaje("3. Salir al menú principal.");
+    
+    int opcionExcepcion = sc.nextInt();
+    sc.nextLine();
 
+    switch (opcionExcepcion) {
+        case 1:
+            mostrarMensaje("Actualmente no hay excepciones registradas. (Funcionalidad futura).");
+            gestionExcepciones(); // Regresar al menú de excepciones.
+            break;
+
+        case 2:
+            probarManejoExcepciones(); // Método para probar manejo de excepciones.
+            break;
+
+        case 3:
+            administracion(); // Regresar al menú principal.
+            break;
+
+        default:
+            mostrarMensaje("Opción no válida. Por favor intente de nuevo.");
+            gestionExcepciones();
+    }
+}
+
+private void probarManejoExcepciones() {
+    mostrarMensaje("Probando manejo de excepciones:");
+    mostrarMensaje("1. Dividir por cero.");
+    mostrarMensaje("2. Acceso a índice fuera de rango.");
+    mostrarMensaje("3. Regresar al menú de gestión de excepciones.");
+    
+    int opcionPrueba = sc.nextInt();
+    sc.nextLine();
+
+    try {
+        switch (opcionPrueba) {
+            case 1:
+                // Generar una excepción de división por cero.
+                int resultado = 10 / 0;
+                mostrarMensaje("Resultado: " + resultado); // Este mensaje no se ejecutará.
+                break;
+
+            case 2:
+                // Generar una excepción de índice fuera de rango.
+                ArrayList<String> lista = new ArrayList<>();
+                mostrarMensaje(lista.get(1)); // Acceso a un índice inexistente.
+                break;
+
+            case 3:
+                gestionExcepciones(); // Regresar al menú.
+                break;
+
+            default:
+                mostrarMensaje("Opción no válida. Por favor intente de nuevo.");
+                probarManejoExcepciones();
+        }
+    } catch (ArithmeticException e) {
+        mostrarMensaje("Error: División por cero no permitida. Detalles: " + e.getMessage());
+    } catch (IndexOutOfBoundsException e) {
+        mostrarMensaje("Error: Índice fuera de rango. Detalles: " + e.getMessage());
+    } catch (Exception e) {
+        mostrarMensaje("Error inesperado: " + e.getMessage());
+    } finally {
+        mostrarMensaje("Prueba de manejo de excepciones finalizada.\n");
+        gestionExcepciones(); // Volver al menú de excepciones después de manejar la excepción.
+    }
 }
 
 public void registrosReportes(){
