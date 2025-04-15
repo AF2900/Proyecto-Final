@@ -2,7 +2,7 @@ package co.edu.uniquindio.poo;
 
 // 04/14/25 Update log: Fue creada la clase persona.
 
-public class Persona {
+public abstract class Persona {
     protected String nombre;
     protected String apellido;
     protected String documentoIdentidad;
@@ -44,6 +44,13 @@ public class Persona {
     }
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public abstract void registrarDatos();
+    public abstract void actualizarDatos();
+
+    public void mostrarMensaje(String mensaje){
+        System.out.println(mensaje);
     }
 
 }
