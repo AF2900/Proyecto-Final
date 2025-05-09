@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo;
 
-public class Medico {
-    
+public class Medico extends Persona {
+
+
+
 }
