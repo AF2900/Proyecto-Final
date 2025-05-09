@@ -31,6 +31,6 @@ public class Hospital {
     public void setNit(String nit) {
         this.nit = nit;
     }
-    
+
 
 }
