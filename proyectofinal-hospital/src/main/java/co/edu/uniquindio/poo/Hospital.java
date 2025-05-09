@@ -32,5 +32,47 @@ public class Hospital {
         this.nit = nit;
     }
 
+    public boolean addMedico(Medico medico) {
+        boolean flag = false;
+        for (Medico m : listMedicos) {
+            if (m.getNombre().equals(medico.getNombre())) {
+                return flag;
+            }
+            listMedicos.add(medico);
+            flag = true;
+        }
+        return flag;
+    }
 
+    public Medico leerMedico(String nombre) {
+        for (Medico m : listMedicos) {
+            if (m.getNombre().equalsIgnoreCase(nombre)) {
+                return m;
+            }
+        }
+        return null;
+    }
+
+    public boolean modificarMedico(Medico medico) {
+        for (int i = 0; i < listMedicos.size(); i++) {
+            if (listMedicos.get(i).getNombre().equalsIgnoreCase(medico.getNombre())) {
+                listMedicos.set(i, medico); // Reemplaza con nuevos datos
+                return true;
+            }
+        }
+        return false; // No encontrado
+    }
+
+    public boolean eliminarMedico(Medico medico) {
+        boolean flag = false;
+        for (Medico m : listMedicos) {
+            if (m.getId().equalsIgnoreCase(medico.getId())) {
+                listMedicos.remove(m);
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+
+    }
 }
