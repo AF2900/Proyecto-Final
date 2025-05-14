@@ -47,11 +47,14 @@ public abstract class Persona {
         this.telefono = telefono;
     }
 
+    //el hospital es el que registra y modifica los datos no las personas
+    /*
     public abstract void registrarDatos();
     public abstract void actualizarDatos();
 
-    public void mostrarMensaje(String mensaje){
+*/
+    /*public void mostrarMensaje(String mensaje){
         System.out.println(mensaje);
     }
-
+*/
 }

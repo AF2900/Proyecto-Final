@@ -1,6 +1,5 @@
 package co.edu.uniquindio.poo.proyectofinal.Model;
 
-//incompleto
 
 public class Medico extends Persona {
 
@@ -18,6 +17,8 @@ public class Medico extends Persona {
     public void actualizarDatos() {
 
     }
+
+
 
 
 }

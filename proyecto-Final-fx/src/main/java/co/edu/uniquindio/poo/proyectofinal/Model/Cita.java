@@ -1,7 +1,7 @@
 package co.edu.uniquindio.poo.proyectofinal.Model;
 
 import java.time.LocalDate;
-import co.edu.uniquindio.poo.Especialidad;
+
 
 
 public class Cita {
@@ -30,5 +30,12 @@ public class Cita {
         return paciente;
     }
 
-
+    @Override
+    public String toString() {
+        return "Cita{" +
+                "fecha=" + fecha +
+                ", especialidad=" + especialidad +
+                ", paciente=" + paciente +
+                '}';
+    }
 }
