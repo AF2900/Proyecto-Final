@@ -1,5 +1,6 @@
-package co.edu.uniquindio.poo;
+package co.edu.uniquindio.poo.proyectofinal.model;
 
+//terminada
 public enum ListaEstado {
     PROGRAMADA,REALIZADA,CANCELADA
 }

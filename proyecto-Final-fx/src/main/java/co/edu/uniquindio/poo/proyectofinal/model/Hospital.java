@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.proyectofinal.Model;
+package co.edu.uniquindio.poo.proyectofinal.model;
 import java.util.LinkedList;
 
 public class Hospital {
@@ -143,5 +143,10 @@ public class Hospital {
         }
         return flag;
     }
-    
+//completar metodo
+    public void asignarMedicoAPaciente(Medico medico, Paciente paciente) {
+
+
+    }
+
 }

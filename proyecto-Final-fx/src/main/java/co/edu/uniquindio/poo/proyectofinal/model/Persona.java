@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.proyectofinal.Model;
+package co.edu.uniquindio.poo.proyectofinal.model;
 
 // 04/14/25 Update log: Fue creada la clase persona.
 

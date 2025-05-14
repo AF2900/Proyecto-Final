@@ -1,5 +1,6 @@
-package co.edu.uniquindio.poo.proyectofinal.Model;
+package co.edu.uniquindio.poo.proyectofinal.model;
 
+//Terminada
 
 public class Medico extends Persona {
 
@@ -7,18 +8,5 @@ public class Medico extends Persona {
       super(nombre, apellido, documentoIdentidad, id, telefono);
 
   }
-
-    @Override
-    public void registrarDatos() {
-
-    }
-
-    @Override
-    public void actualizarDatos() {
-
-    }
-
-
-
 
 }
