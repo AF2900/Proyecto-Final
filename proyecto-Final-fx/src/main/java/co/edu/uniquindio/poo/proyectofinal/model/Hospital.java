@@ -58,6 +58,7 @@ public class Hospital {
     }
 
     //CRUD de Medico
+
     public boolean addMedico(Medico medico) {
         boolean flag = false;
         for (Medico m : listMedicos) {
@@ -69,6 +70,7 @@ public class Hospital {
         }
         return flag;
     }
+
 
     public Medico leerMedico(String nombre) {
         for (Medico m : listMedicos) {
@@ -102,6 +104,7 @@ public class Hospital {
     }
 
     //CRUD Paciente
+
     public boolean addPaciente(Paciente paciente) {
         boolean flag = false;
         for (Paciente p : listPacientes) {
@@ -143,10 +146,70 @@ public class Hospital {
         }
         return flag;
     }
+
+
+    //CURD de citas
+
+    public boolean crearCita(Cita cita) {
+        boolean flag = false;
+        for (Cita c : listCitas) {
+            if (c.getId().equals(cita.getId())) {
+                return flag;
+            }
+            listCitas.add(cita);
+            flag = true;
+        }
+        return flag;
+    }
+
+    public Cita leerCita(String idCita) {
+        for (Cita c : listCitas) {
+            if (c.getId().equalsIgnoreCase(idCita)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public boolean modificarCita(Cita cita) {
+        for (int i = 0; i < listCitas.size(); i++) {
+            if (listCitas.get(i).getId().equalsIgnoreCase(cita.getId())) {
+                listCitas.set(i, cita); // Reemplaza con nuevos datos
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarCita(Cita cita) {
+        boolean flag = false;
+        for (Cita c : listCitas) {
+            if (c.getId().equalsIgnoreCase(cita.getId())) {
+                listCitas.remove(c);
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
+
+
+
+    public void solicitarCitas(Cita cita,String fecha, String hora ) {
+        for (Cita c : listCitas) {
+            if (c.getId().equalsIgnoreCase(cita.getId())&&c.getFecha().equals(fecha)
+                    &&c.getHora().equals(hora)) {
+            }
+        }
+    }
+
+
 //completar metodo
-    public void asignarMedicoAPaciente(Medico medico, Paciente paciente) {
+    public void asignarMedicoACitaMedica(Medico medico, Paciente paciente) {
 
 
     }
+
+
 
 }

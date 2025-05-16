@@ -1,15 +1,19 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Paciente extends Persona {
     private String direccion;
-    private Especialidad especialidad;
+
     private HistorialMedico historialMedico;
 
-public Paciente(String nombre, String apellido, String documentoIdentidad, String id, String telefono,String direccion,HistorialMedico historialMedico) {
+public Paciente(String nombre, String apellido, String documentoIdentidad, String id, String telefono,String direccion,HistorialMedico historialMedico,Especialidad especialidad) {
     super(nombre, apellido, documentoIdentidad, id, telefono);
     this.direccion=direccion;
     this.historialMedico=historialMedico;
+
+
 }
 
 
@@ -29,18 +33,27 @@ public void setHistorialMedico(HistorialMedico historialMedico) {
     this.historialMedico = historialMedico;
 }
 
-//este metodo esta mal
-// cuando solicitas una cita no pones la especialidad ,esta es la especialidad del Medico, no es para solicitar en una cita
 
-//organizar
-public Cita solicitarCita(LocalDate fecha, String hora){
-    //Podemos agregar validaciones aquí.
-    Cita nuevaCita= new Cita(fecha,  this);
-    mostrarMensaje("La cita ha sido registrada.");
-    return nuevaCita;
+    public void solicitarCita() {
+
+
+    }
+
+
+
+
+    public void cancelarCita(LocalDate fecha, String hora){
+
 }
 
-    // igual tenemos que preguntarle al profesor si necesitamos esa clase
+public void consultarHistorialMedico(Cita cita){
+
+}
+
+public void actualizarPaciente (Paciente paciente){
+
+}
+
 /*
 @Override
 public void registrarDatos(){

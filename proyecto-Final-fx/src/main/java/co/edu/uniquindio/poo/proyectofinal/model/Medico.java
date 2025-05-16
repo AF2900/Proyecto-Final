@@ -8,5 +8,8 @@ public class Medico extends Persona {
       super(nombre, apellido, documentoIdentidad, id, telefono);
 
   }
+  public void verHistorialMedicoPaciente(Paciente paciente){
+
+  }
 
 }
