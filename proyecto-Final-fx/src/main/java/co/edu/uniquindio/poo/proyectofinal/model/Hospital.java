@@ -232,6 +232,7 @@ public RegistroMedico buscarRegistro(String id) {
             }
         }
         return null;
+     }
 
 
 
