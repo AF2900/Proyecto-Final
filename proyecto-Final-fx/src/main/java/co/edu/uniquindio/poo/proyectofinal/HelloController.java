@@ -20,4 +20,13 @@ public class HelloController {
         textAreaReporte.setText(reporte);
     }
 
+    @FXML
+    private TextArea txtReporteOcupacion;
+
+    @FXML
+    private void mostrarReporteOcupacion() {
+        String reporte = hospital.generarReporteOcupacion();
+        txtReporteOcupacion.setText(reporte);
+    }
+
 }

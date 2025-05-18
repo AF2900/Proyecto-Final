@@ -369,6 +369,18 @@ public boolean agregarSala(Sala sala) {
         return reporte.toString();
     }
 
+    public String generarReporteOcupacion() {
+        StringBuilder reporte = new StringBuilder();
+        for (Sala sala : listSalas) {
+            reporte.append("Sala: ").append(sala.nombre)
+                    .append(", Capacidad: ").append(sala.capacidad)
+                    .append(", Ocupación actual: ").append(sala.getPacientesAsignados().size())
+                    .append("\n");
+        }
+        return reporte.toString();
+    }
+
+
 
 
 

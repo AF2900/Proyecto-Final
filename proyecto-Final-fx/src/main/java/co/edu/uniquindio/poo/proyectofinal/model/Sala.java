@@ -1,6 +1,13 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Sala {
+    private List<Paciente> pacientesAsignados = new LinkedList<>();
+    public char[] capacidad;
+    public char[] nombre;
+
     private String id;
     private boolean disposicion;
 
@@ -23,5 +30,13 @@ public class Sala {
 
     public void setDisposicion(boolean disposicion) {
         this.disposicion = disposicion;
+    }
+
+    public List<Paciente> getPacientesAsignados() {
+        return pacientesAsignados;
+    }
+
+    public void setPacientesAsignados(List<Paciente> pacientesAsignados) {
+        this.pacientesAsignados = pacientesAsignados;
     }
 }
