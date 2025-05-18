@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
+import java.time.LocalDate;
 import java.util.LinkedList;
 
 public class Hospital {
@@ -8,6 +9,7 @@ public class Hospital {
     private LinkedList<Medico> listMedicos;
     private LinkedList<Paciente> listPacientes;
     private LinkedList<RegistroMedico>listRegistro;
+    private LinkedList<HistorialMedico>listHistorial;
 
 
     public Hospital(String nombre, String nit) {
@@ -64,6 +66,13 @@ public class Hospital {
 
     public void setListRegistro(LinkedList<RegistroMedico> listRegistro) {
         this.listRegistro = listRegistro;
+    }
+    public LinkedList<HistorialMedico> getListHistorial() {
+    return listHistorial;
+    }
+
+    public void setListHistorial(LinkedList<HistorialMedico> listHistorial) {
+    this.listHistorial = listHistorial;
     }
 
     //CRUD de Medico
@@ -233,6 +242,49 @@ public RegistroMedico buscarRegistro(String id) {
         }
         return null;
      }
+
+     //Pendiente
+public void enviarRecordatorio() {
+    LocalDate hoy = LocalDate.now();
+    for (Cita cita : listCitas) {
+        LocalDate fechaCita = cita.getFecha(); // obtengo la fecha de la cita
+        if (!hoy.isAfter(fechaCita) && !hoy.isBefore(fechaCita.minusDays(1))) {
+            
+        }
+    }
+}
+
+//Funciones de Médicos
+public boolean crearHistorial(HistorialMedico historial){
+        boolean flag = false;
+        for (HistorialMedico r : listHistorial) {
+            if (r.getId().equals(historial.getId())) {
+                return flag;
+            }
+            listHistorial.add(historial);
+            flag = true;
+        }
+        return flag;
+}
+
+public HistorialMedico buscarHistorialMedico(String id) {
+        for (HistorialMedico r : listHistorial) {
+            if (r.getId().equalsIgnoreCase(id)) {
+                return r;
+            }
+        }
+        return null;
+     }
+
+//Otro que necesita FX
+
+public void mostrarHistorialMedico(String id) {
+    HistorialMedico historial = buscarHistorialMedico(id); 
+
+    if (historial != null) {
+        
+    }
+}     
 
 
 
