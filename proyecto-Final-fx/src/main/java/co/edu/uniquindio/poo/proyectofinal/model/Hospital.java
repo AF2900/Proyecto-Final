@@ -11,6 +11,8 @@ public class Hospital {
     private LinkedList<RegistroMedico>listRegistro;
     private LinkedList<HistorialMedico>listHistorial;
 
+    private LinkedList<Sala>listSalas;
+
 
     public Hospital(String nombre, String nit) {
         this.nombre = nombre;
@@ -18,6 +20,8 @@ public class Hospital {
         this.listCitas = new LinkedList<>();
         this.listMedicos = new LinkedList<>();
         this.listPacientes = new LinkedList<>();
+        this.listSalas = new LinkedList<>();
+
     }
 
     public String getNombre() {
@@ -73,6 +77,14 @@ public class Hospital {
 
     public void setListHistorial(LinkedList<HistorialMedico> listHistorial) {
     this.listHistorial = listHistorial;
+    }
+
+    public LinkedList<Sala> getListSalas() {
+        return listSalas;
+    }
+
+    public void setListSalas(LinkedList<Sala> listSalas) {
+        this.listSalas = listSalas;
     }
 
     //CRUD de Medico
@@ -284,9 +296,30 @@ public void mostrarHistorialMedico(String id) {
     if (historial != null) {
         
     }
-}     
+
+}
 
 
+//Funciones respecto al admin
+public boolean agregarSala(Sala sala) {
+    boolean flag = false;
+    for (Sala s : listSalas) {
+        if (s.getId().equalsIgnoreCase(sala.getId())) {
+            return flag;
+        }
+    }
+    listSalas.add(sala);
+    flag = true;
+    return flag;
+}
 
-
+    public boolean modificarSala(Sala sala) {
+        for (int i = 0; i < listSalas.size(); i++) {
+            if (listSalas.get(i).getId().equalsIgnoreCase(sala.getId())) {
+                listSalas.set(i, sala);
+                return true;
+            }
+        }
+        return false;
+    }
 }
