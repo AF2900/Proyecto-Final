@@ -347,4 +347,16 @@ public boolean agregarSala(Sala sala) {
         return true;
     }
 
+    public LinkedList<Medico> obtenerMedicosDisponibles() {
+        LinkedList<Medico> disponibles = new LinkedList<>();
+        for (Medico m : listMedicos) {
+            if (m.getListPacientes().size() < 5) {
+                disponibles.add(m);
+            }
+        }
+        return disponibles;
+    }
+
+
+
 }
