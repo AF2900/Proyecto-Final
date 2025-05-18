@@ -87,6 +87,8 @@ public class Hospital {
         this.listSalas = listSalas;
     }
 
+
+
     //CRUD de Medico
 
     public boolean addMedico(Medico medico) {
@@ -336,6 +338,13 @@ public boolean agregarSala(Sala sala) {
         }
         return null;
     }
-    
+
+    public boolean asignarPacienteAMedico(Paciente paciente, Medico medico) {
+        if (medico.getListPacientes().size() >= 5) {
+            return false;
+        }
+        medico.getListPacientes().add(paciente);
+        return true;
+    }
 
 }
