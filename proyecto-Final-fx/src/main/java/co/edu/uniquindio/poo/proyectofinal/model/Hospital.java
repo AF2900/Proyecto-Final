@@ -301,6 +301,7 @@ public void mostrarHistorialMedico(String id) {
 
 
 //Funciones respecto al admin
+
 public boolean agregarSala(Sala sala) {
     boolean flag = false;
     for (Sala s : listSalas) {
@@ -322,4 +323,19 @@ public boolean agregarSala(Sala sala) {
         }
         return false;
     }
+
+    public boolean eliminarSala(Sala sala) {
+        return listSalas.removeIf(s -> s.getId().equalsIgnoreCase(sala.getId()));
+    }
+
+    public Sala buscarSala(String id) {
+        for (Sala sala : listSalas) {
+            if (sala.getId().equalsIgnoreCase(id)) {
+                return sala;
+            }
+        }
+        return null;
+    }
+    
+
 }
