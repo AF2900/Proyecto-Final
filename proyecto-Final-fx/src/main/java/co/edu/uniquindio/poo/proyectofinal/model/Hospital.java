@@ -7,6 +7,7 @@ public class Hospital {
     private LinkedList<Cita> listCitas;
     private LinkedList<Medico> listMedicos;
     private LinkedList<Paciente> listPacientes;
+    private LinkedList<RegistroMedico>listRegistro;
 
 
     public Hospital(String nombre, String nit) {
@@ -55,6 +56,14 @@ public class Hospital {
 
     public void setListPacientes(LinkedList<Paciente> listPacientes) {
         this.listPacientes = listPacientes;
+    }
+
+    public LinkedList<RegistroMedico> getListRegistro() {
+        return listRegistro;
+    }
+
+    public void setListRegistro(LinkedList<RegistroMedico> listRegistro) {
+        this.listRegistro = listRegistro;
     }
 
     //CRUD de Medico
@@ -190,7 +199,7 @@ public class Hospital {
                 break;
             }
         }
-        return flag;
+        return flag; //Perfecta para cancelación de citas
     }
 
 
@@ -203,12 +212,19 @@ public class Hospital {
         }
     }
 
+    //Funcionalidades para Pacientes.
+public boolean crearRegistro(RegistroMedico registroMedico){
+        boolean flag = false;
+        for (RegistroMedico r : listRegistro) {
+            if (r.getId().equals(registroMedico.getId())) {
+                return flag;
+            }
+            listRegistro.add(registroMedico);
+            flag = true;
+        }
+        return flag;
+}
 
-//completar metodo
-    public void asignarMedicoACitaMedica(Medico medico, Paciente paciente) {
-
-
-    }
 
 
 
