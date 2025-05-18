@@ -225,6 +225,14 @@ public boolean crearRegistro(RegistroMedico registroMedico){
         return flag;
 }
 
+public RegistroMedico buscarRegistro(String id) {
+        for (RegistroMedico r : listRegistro) {
+            if (r.getId().equalsIgnoreCase(id)) {
+                return r;
+            }
+        }
+        return null;
+
 
 
 
