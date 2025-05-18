@@ -1,14 +1,23 @@
 package co.edu.uniquindio.poo.proyectofinal;
 
+import co.edu.uniquindio.poo.proyectofinal.model.Hospital;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 public class HelloController {
     @FXML
-    private Label welcomeText;
+    private TextArea textAreaReporte;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private Hospital hospital;
+
+    public void initialize() {
+        hospital = new Hospital("Hospital UQ", "1254436778");
     }
+    @FXML
+    private void mostrarReporteCitas() {
+        String reporte = hospital.generarReporteCitas();
+        textAreaReporte.setText(reporte);
+    }
+
 }

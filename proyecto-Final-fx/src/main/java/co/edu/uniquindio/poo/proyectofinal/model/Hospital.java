@@ -356,6 +356,22 @@ public boolean agregarSala(Sala sala) {
         }
         return disponibles;
     }
+    
+    public String generarReporteCitas() {
+        StringBuilder reporte = new StringBuilder();
+        for (Cita c : listCitas) {
+            reporte.append("Cita ID: ").append(c.getId())
+                    .append(", Paciente: ").append(c.getPaciente().getNombre())
+                    .append(", Médico: ").append(c.getMedico().getNombre())
+                    .append(", Fecha: ").append(c.getFecha())
+                    .append("\n");
+        }
+        return reporte.toString();
+    }
+
+
+
+
 
 
 
