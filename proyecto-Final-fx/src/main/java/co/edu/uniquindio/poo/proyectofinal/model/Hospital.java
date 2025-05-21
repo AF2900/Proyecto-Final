@@ -193,8 +193,11 @@ public class Hospital {
         return flag;
     }
 
+    //CRUD HISTORIALMEDICO
 
 
+
+//terminar
     public void solicitarCitas(Cita cita,String fecha, String hora ) {
         for (Cita c : listCitas) {
             if (c.getId().equalsIgnoreCase(cita.getId())&&c.getFecha().equals(fecha)

@@ -8,8 +8,14 @@ public class Medico extends Persona {
       super(nombre, apellido, documentoIdentidad, id, telefono);
 
   }
-  public void verHistorialMedicoPaciente(Paciente paciente){
 
-  }
+    public HistorialMedico leerHistorialMedicoPaciente(String idPaciente) {
+        for ( c : listCitas) {
+            if (c.getId().equalsIgnoreCase(idCita)) {
+                return c;
+            }
+        }
+        return null;
+    }
 
 }

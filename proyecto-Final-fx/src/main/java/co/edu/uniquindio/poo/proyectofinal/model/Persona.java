@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
+import java.util.ArrayList;
 
 // 04/14/25 Update log: Fue creada la clase persona.
 
@@ -9,12 +10,14 @@ public abstract class Persona {
     protected String id;
     protected String telefono;
 
+
     public Persona(String nombre, String apellido, String documentoIdentidad, String id, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.documentoIdentidad = documentoIdentidad;
         this.id = id;
         this.telefono = telefono;
+
     }
     public String getNombre() {
         return nombre;
