@@ -11,6 +11,7 @@ public abstract class Persona {
     protected String telefono;
 
 
+
     public Persona(String nombre, String apellido, String documentoIdentidad, String id, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;

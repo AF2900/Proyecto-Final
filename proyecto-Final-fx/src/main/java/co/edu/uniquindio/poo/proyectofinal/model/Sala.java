@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Sala {
-    private List<Paciente> pacientesAsignados = new LinkedList<>();
+    private List<Paciente> pacientesAsignados ;
     public char[] capacidad;
     public char[] nombre;
 
@@ -14,6 +14,7 @@ public class Sala {
     public Sala(String id, boolean disposicion) {
         this.id = id;
         this.disposicion = disposicion;
+        this.pacientesAsignados = new LinkedList<>();
     }
 
     public String getId() {

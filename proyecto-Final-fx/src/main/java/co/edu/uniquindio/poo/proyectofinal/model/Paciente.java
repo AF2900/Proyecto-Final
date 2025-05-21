@@ -1,11 +1,11 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Paciente extends Persona {
     private String direccion;
-
     private HistorialMedico historialMedico;
 
 public Paciente(String nombre, String apellido, String documentoIdentidad, String id, String telefono,String direccion,HistorialMedico historialMedico,Especialidad especialidad) {
@@ -25,14 +25,14 @@ public void setDireccion(String direccion) {
     this.direccion = direccion;
 }
 
-public HistorialMedico getHistorialMedico() {
-    return historialMedico;
-}
 
-public void setHistorialMedico(HistorialMedico historialMedico) {
-    this.historialMedico = historialMedico;
-}
+    public HistorialMedico getHistorialMedico() {
+        return historialMedico;
+    }
 
+    public void setHistorialMedico(HistorialMedico historialMedico) {
+        this.historialMedico = historialMedico;
+    }
 
     public void solicitarCita() {
 
@@ -40,31 +40,19 @@ public void setHistorialMedico(HistorialMedico historialMedico) {
     }
 
 
-
-
     public void cancelarCita(LocalDate fecha, String hora){
 
 }
 
-public void consultarHistorialMedico(Cita cita){
+    public HistorialMedico cosultarHistorialMedico() {
+    }
 
-}
 
 public void actualizarPaciente (Paciente paciente){
 
+
 }
 
-/*
-@Override
-public void registrarDatos(){
-    System.out.println("prueba");
-}  
 
-
-/*
-@Override
-public void actualizarDatos(){
-    System.out.println("prueba");
-*/
 }
 
