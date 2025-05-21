@@ -1,4 +1,5 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
+import java.time.LocalDate;
 import java.util.LinkedList;
 
 public class Hospital {
@@ -7,6 +8,10 @@ public class Hospital {
     private LinkedList<Cita> listCitas;
     private LinkedList<Medico> listMedicos;
     private LinkedList<Paciente> listPacientes;
+    private LinkedList<RegistroMedico>listRegistro;
+    private LinkedList<HistorialMedico>listHistorial;
+
+    private LinkedList<Sala>listSalas;
 
 
     public Hospital(String nombre, String nit) {
@@ -15,6 +20,8 @@ public class Hospital {
         this.listCitas = new LinkedList<>();
         this.listMedicos = new LinkedList<>();
         this.listPacientes = new LinkedList<>();
+        this.listSalas = new LinkedList<>();
+
     }
 
     public String getNombre() {
@@ -56,6 +63,31 @@ public class Hospital {
     public void setListPacientes(LinkedList<Paciente> listPacientes) {
         this.listPacientes = listPacientes;
     }
+
+    public LinkedList<RegistroMedico> getListRegistro() {
+        return listRegistro;
+    }
+
+    public void setListRegistro(LinkedList<RegistroMedico> listRegistro) {
+        this.listRegistro = listRegistro;
+    }
+    public LinkedList<HistorialMedico> getListHistorial() {
+    return listHistorial;
+    }
+
+    public void setListHistorial(LinkedList<HistorialMedico> listHistorial) {
+    this.listHistorial = listHistorial;
+    }
+
+    public LinkedList<Sala> getListSalas() {
+        return listSalas;
+    }
+
+    public void setListSalas(LinkedList<Sala> listSalas) {
+        this.listSalas = listSalas;
+    }
+
+
 
     //CRUD de Medico
 
@@ -190,7 +222,7 @@ public class Hospital {
                 break;
             }
         }
-        return flag;
+        return flag; //Perfecta para cancelación de citas
     }
 
     //CRUD HISTORIALMEDICO
@@ -206,12 +238,155 @@ public class Hospital {
         }
     }
 
+    //Funcionalidades para Pacientes.
+public boolean crearRegistro(RegistroMedico registroMedico){
+        boolean flag = false;
+        for (RegistroMedico r : listRegistro) {
+            if (r.getId().equals(registroMedico.getId())) {
+                return flag;
+            }
+            listRegistro.add(registroMedico);
+            flag = true;
+        }
+        return flag;
+}
 
-//completar metodo
-    public void asignarMedicoACitaMedica(Medico medico, Paciente paciente) {
+public RegistroMedico buscarRegistro(String id) {
+        for (RegistroMedico r : listRegistro) {
+            if (r.getId().equalsIgnoreCase(id)) {
+                return r;
+            }
+        }
+        return null;
+     }
 
-
+     //Pendiente
+public void enviarRecordatorio() {
+    LocalDate hoy = LocalDate.now();
+    for (Cita cita : listCitas) {
+        LocalDate fechaCita = cita.getFecha(); // obtengo la fecha de la cita
+        if (!hoy.isAfter(fechaCita) && !hoy.isBefore(fechaCita.minusDays(1))) {
+            
+        }
     }
+}
+
+//Funciones de Médicos
+public boolean crearHistorial(HistorialMedico historial){
+        boolean flag = false;
+        for (HistorialMedico r : listHistorial) {
+            if (r.getId().equals(historial.getId())) {
+                return flag;
+            }
+            listHistorial.add(historial);
+            flag = true;
+        }
+        return flag;
+}
+
+public HistorialMedico buscarHistorialMedico(String id) {
+        for (HistorialMedico r : listHistorial) {
+            if (r.getId().equalsIgnoreCase(id)) {
+                return r;
+            }
+        }
+        return null;
+     }
+
+//Otro que necesita FX
+
+public void mostrarHistorialMedico(String id) {
+    HistorialMedico historial = buscarHistorialMedico(id); 
+
+    if (historial != null) {
+        
+    }
+
+}
+
+
+//Funciones respecto al admin
+
+public boolean agregarSala(Sala sala) {
+    boolean flag = false;
+    for (Sala s : listSalas) {
+        if (s.getId().equalsIgnoreCase(sala.getId())) {
+            return flag;
+        }
+    }
+    listSalas.add(sala);
+    flag = true;
+    return flag;
+}
+
+    public boolean modificarSala(Sala sala) {
+        for (int i = 0; i < listSalas.size(); i++) {
+            if (listSalas.get(i).getId().equalsIgnoreCase(sala.getId())) {
+                listSalas.set(i, sala);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarSala(Sala sala) {
+        return listSalas.removeIf(s -> s.getId().equalsIgnoreCase(sala.getId()));
+    }
+
+    public Sala buscarSala(String id) {
+        for (Sala sala : listSalas) {
+            if (sala.getId().equalsIgnoreCase(id)) {
+                return sala;
+            }
+        }
+        return null;
+    }
+
+    public boolean asignarPacienteAMedico(Paciente paciente, Medico medico) {
+        if (medico.getListPacientes().size() >= 5) {
+            return false;
+        }
+        medico.getListPacientes().add(paciente);
+        return true;
+    }
+
+    public LinkedList<Medico> obtenerMedicosDisponibles() {
+        LinkedList<Medico> disponibles = new LinkedList<>();
+        for (Medico m : listMedicos) {
+            if (m.getListPacientes().size() < 5) {
+                disponibles.add(m);
+            }
+        }
+        return disponibles;
+    }
+    
+    public String generarReporteCitas() {
+        StringBuilder reporte = new StringBuilder();
+        for (Cita c : listCitas) {
+            reporte.append("Cita ID: ").append(c.getId())
+                    .append(", Paciente: ").append(c.getPaciente().getNombre())
+                    .append(", Médico: ").append(c.getMedico().getNombre())
+                    .append(", Fecha: ").append(c.getFecha())
+                    .append("\n");
+        }
+        return reporte.toString();
+    }
+
+    public String generarReporteOcupacion() {
+        StringBuilder reporte = new StringBuilder();
+        for (Sala sala : listSalas) {
+            reporte.append("Sala: ").append(sala.nombre)
+                    .append(", Capacidad: ").append(sala.capacidad)
+                    .append(", Ocupación actual: ").append(sala.getPacientesAsignados().size())
+                    .append("\n");
+        }
+        return reporte.toString();
+    }
+
+
+
+
+
 
 
 
