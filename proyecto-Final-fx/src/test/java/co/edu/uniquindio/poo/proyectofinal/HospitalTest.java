@@ -18,7 +18,8 @@ public class HospitalTest {
     Paciente paciente= new Paciente("Juan carlos", "Bodoque", "092861", "5532", "Deudas", "Casa 1", historial, null);
     Cita cita= new Cita("1987", LocalDate.of(2025, 5, 22), "17:40", medico, paciente);
     
-//Test de creación de médicos
+//Tests de creación/eliminación de Citas
+
 @Test
 public void crearCitaTest(){
     boolean resultado= hospital.crearCita(cita);
@@ -30,6 +31,15 @@ public void eliminarCitaTest(){
     hospital.crearCita(cita);
     boolean borrado = hospital.eliminarCita(cita);
     assertTrue(borrado);
+}
+
+//Tests de creación/Eliminación de pacientes
+
+@Test
+public void addPaciente(){
+    boolean pruebaUno= hospital.addPaciente(paciente);
+    assertTrue(pruebaUno);
+
 }
 
 

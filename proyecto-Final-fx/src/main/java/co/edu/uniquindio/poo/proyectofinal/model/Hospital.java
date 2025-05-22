@@ -137,16 +137,14 @@ public class Hospital {
 // CRUD Paciente
 
     public boolean addPaciente(Paciente paciente) {
-        boolean flag = false;
-        for (Paciente p : listPacientes) {
-            if (p.getNombre().equals(paciente.getNombre())) {
-                return flag;
-            }
-            listPacientes.add(paciente);
-            flag = true;
+    for (Paciente p : listPacientes) {
+       if (p.getId().equals(paciente.getId())) {
+            return false; // Ya existe un paciente con ese nombre
         }
-        return flag;
     }
+    listPacientes.add(paciente); // Agregar fuera del for
+    return true;
+}
 
     public Paciente leerPaciente(String nombre) {
         for (Paciente p : listPacientes) {
