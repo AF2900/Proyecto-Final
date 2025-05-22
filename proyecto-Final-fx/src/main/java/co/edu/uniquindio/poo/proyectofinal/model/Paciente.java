@@ -33,16 +33,6 @@ public void setDireccion(String direccion) {
     public void setHistorialMedico(HistorialMedico historialMedico) {
         this.historialMedico = historialMedico;
     }
-//metodo de solicitar cita
-    public void solicitarCita() {
-
-
-    }
-
-// metodo de cancelar cita
-    public void cancelarCita(LocalDate fecha, String hora){
-
-}
 // consultar historialMedico
     public HistorialMedico consultarHistorialMedico() {
         if (historialMedico != null && historialMedico.getPaciente().getId().equals(this.getId())) {

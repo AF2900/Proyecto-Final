@@ -182,15 +182,13 @@ public class Hospital {
 // CURD de citas
 
     public boolean crearCita(Cita cita) {
-        boolean flag = false;
         for (Cita c : listCitas) {
             if (c.getId().equals(cita.getId())) {
-                return flag;
+                return false;
             }
-            listCitas.add(cita);
-            flag = true;
         }
-        return flag;
+        listCitas.add(cita);
+        return true;
     }
 
     public Cita leerCita(String idCita) {
