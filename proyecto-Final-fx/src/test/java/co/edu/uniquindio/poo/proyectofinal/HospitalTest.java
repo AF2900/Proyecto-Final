@@ -42,5 +42,13 @@ public void addPaciente(){
 
 }
 
+@Test
+public void borrarPaciente(){
+    hospital.addPaciente(paciente);
+    boolean borrado= hospital.eliminarPaciente(paciente);
+    assertTrue(borrado);
+
+}
+
 
 }
