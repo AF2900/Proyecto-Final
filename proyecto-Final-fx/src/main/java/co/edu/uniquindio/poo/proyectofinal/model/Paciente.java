@@ -33,18 +33,24 @@ public void setDireccion(String direccion) {
     public void setHistorialMedico(HistorialMedico historialMedico) {
         this.historialMedico = historialMedico;
     }
-
+//metodo de solicitar cita
     public void solicitarCita() {
 
 
     }
 
-
+// metodo de cancelar cita
     public void cancelarCita(LocalDate fecha, String hora){
 
 }
-
-    public HistorialMedico cosultarHistorialMedico() {
+// consultar historialMedico
+    public HistorialMedico consultarHistorialMedico() {
+        if (historialMedico != null && historialMedico.getPaciente().getId().equals(this.getId())) {
+            return historialMedico;
+        } else {
+            System.out.println("Historial no encontrado o no pertenece al paciente.");
+            return null;
+        }
     }
 
 
