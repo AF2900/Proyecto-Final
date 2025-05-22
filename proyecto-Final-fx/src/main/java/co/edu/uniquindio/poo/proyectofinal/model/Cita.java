@@ -11,7 +11,7 @@ public class Cita {
     private Medico medico;
     private Paciente paciente;
 
-    public Cita(String id, LocalDate fecha, String hora, Medico medico, Paciente paciente) {
+    public Cita(String id, String fecha, String hora, Medico medico, Paciente paciente) {
         this.id = id;
         this.fecha = fecha;
         this.hora = hora;

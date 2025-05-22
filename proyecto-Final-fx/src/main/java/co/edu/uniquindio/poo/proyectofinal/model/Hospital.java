@@ -88,7 +88,7 @@ public class Hospital {
     }
 
 
-
+//==================================================================================================================
     //CRUD de Medico
 
     public boolean addMedico(Medico medico) {
@@ -103,7 +103,6 @@ public class Hospital {
         return flag;
     }
 
-
     public Medico leerMedico(String nombre) {
         for (Medico m : listMedicos) {
             if (m.getNombre().equalsIgnoreCase(nombre)) {
@@ -116,7 +115,7 @@ public class Hospital {
     public boolean modificarMedico(Medico medico) {
         for (int i = 0; i < listMedicos.size(); i++) {
             if (listMedicos.get(i).getNombre().equalsIgnoreCase(medico.getNombre())) {
-                listMedicos.set(i, medico); // Reemplaza con nuevos datos
+                listMedicos.set(i, medico);
                 return true;
             }
         }
@@ -134,8 +133,8 @@ public class Hospital {
         }
         return flag;
     }
-
-    //CRUD Paciente
+//====================================================================================================================
+// CRUD Paciente
 
     public boolean addPaciente(Paciente paciente) {
         boolean flag = false;
@@ -160,7 +159,7 @@ public class Hospital {
     public boolean modificarPaciente(Paciente paciente) {
         for (int i = 0; i < listPacientes.size(); i++) {
             if (listPacientes.get(i).getNombre().equalsIgnoreCase(paciente.getNombre())) {
-                listPacientes.set(i, paciente); // Reemplaza con nuevos datos
+                listPacientes.set(i, paciente);
                 return true;
             }
         }
@@ -179,8 +178,8 @@ public class Hospital {
         return flag;
     }
 
-
-    //CURD de citas
+//==================================================================================================================
+// CURD de citas
 
     public boolean crearCita(Cita cita) {
         boolean flag = false;
@@ -206,7 +205,7 @@ public class Hospital {
     public boolean modificarCita(Cita cita) {
         for (int i = 0; i < listCitas.size(); i++) {
             if (listCitas.get(i).getId().equalsIgnoreCase(cita.getId())) {
-                listCitas.set(i, cita); // Reemplaza con nuevos datos
+                listCitas.set(i, cita);
                 return true;
             }
         }
@@ -222,23 +221,52 @@ public class Hospital {
                 break;
             }
         }
-        return flag; //Perfecta para cancelación de citas
+        return flag;
     }
 
-    //CRUD HISTORIALMEDICO
+
+//==================================================================================================================
+//solicitar Cita
 
 
-
-//terminar
-    public void solicitarCitas(Cita cita,String fecha, String hora ) {
+    public boolean solicitarCita(Paciente paciente, Medico medico, String fecha, String hora, String idCita) {
         for (Cita c : listCitas) {
-            if (c.getId().equalsIgnoreCase(cita.getId())&&c.getFecha().equals(fecha)
-                    &&c.getHora().equals(hora)) {
+            if (c.getFecha().equals(fecha) && c.getHora().equals(hora)) {
+                if (c.getMedico().equals(medico)) {
+                    System.out.println("El médico no está disponible en ese horario.");
+                    return false;
+                }
+                if (c.getPaciente().equals(paciente)) {
+                    System.out.println("El paciente ya tiene una cita en ese horario.");
+                    return false;
+                }
             }
         }
+
+        Cita nuevaCita = new Cita( idCita, fecha, hora, medico,paciente);
+        listCitas.add(nuevaCita);
+        return true;
     }
 
-    //Funcionalidades para Pacientes.
+
+//==================================================================================================================
+//cancelar Cita
+public boolean cancelarCitaPorId(String idCita) {
+    for (Cita c : listCitas) {
+        if (c.getId().equals(idCita)) {
+            listCitas.remove(c);
+            System.out.println("Cita cancelada correctamente.");
+            return true;
+        }
+    }
+    System.out.println("No se encontró una cita con ese ID.");
+    return false;
+}
+
+
+//==================================================================================================================
+// Funcionalidades para Pacientes
+
 public boolean crearRegistro(RegistroMedico registroMedico){
         boolean flag = false;
         for (RegistroMedico r : listRegistro) {
@@ -271,7 +299,9 @@ public void enviarRecordatorio() {
     }
 }
 
+//==================================================================================================================
 //Funciones de Médicos
+
 public boolean crearHistorial(HistorialMedico historial){
         boolean flag = false;
         for (HistorialMedico r : listHistorial) {
@@ -292,7 +322,7 @@ public HistorialMedico buscarHistorialMedico(String id) {
         }
         return null;
      }
-
+//==================================================================================================================
 //Otro que necesita FX
 
 public void mostrarHistorialMedico(String id) {
@@ -301,10 +331,9 @@ public void mostrarHistorialMedico(String id) {
     if (historial != null) {
         
     }
-
 }
 
-
+//=====================================================================================================================
 //Funciones respecto al admin
 
 public boolean agregarSala(Sala sala) {
@@ -341,6 +370,8 @@ public boolean agregarSala(Sala sala) {
         }
         return null;
     }
+//==================================================================================================================
+//Asignar paciente al medico
 
     public boolean asignarPacienteAMedico(Paciente paciente, Medico medico) {
         if (medico.getListPacientes().size() >= 5) {
@@ -349,6 +380,8 @@ public boolean agregarSala(Sala sala) {
         medico.getListPacientes().add(paciente);
         return true;
     }
+//==================================================================================================================
+// Obtener Medicos Disponibles
 
     public LinkedList<Medico> obtenerMedicosDisponibles() {
         LinkedList<Medico> disponibles = new LinkedList<>();
@@ -359,7 +392,9 @@ public boolean agregarSala(Sala sala) {
         }
         return disponibles;
     }
-    
+
+//==================================================================================================================
+// Generar reporte de citas
     public String generarReporteCitas() {
         StringBuilder reporte = new StringBuilder();
         for (Cita c : listCitas) {
@@ -371,6 +406,8 @@ public boolean agregarSala(Sala sala) {
         }
         return reporte.toString();
     }
+//==================================================================================================================
+// Generar reporte de ocupacion
 
     public String generarReporteOcupacion() {
         StringBuilder reporte = new StringBuilder();
@@ -382,12 +419,5 @@ public boolean agregarSala(Sala sala) {
         }
         return reporte.toString();
     }
-
-
-
-
-
-
-
 
 }
