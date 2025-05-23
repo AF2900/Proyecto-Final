@@ -2,6 +2,7 @@ package co.edu.uniquindio.poo.proyectofinal;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 import co.edu.uniquindio.poo.proyectofinal.model.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 
@@ -55,5 +56,33 @@ public class HospitalTest {
         hospital.agregarSala(new Sala("A101", true)); // Primera vez, debería agregarla
         assertFalse(hospital.agregarSala(new Sala("A101", true))); // Duplicada, debe fallar
     }
+
+    @BeforeEach
+    public void setUp() {
+        hospital = new Hospital("Hospital", "12332323");
+        hospital.getListSalas().clear();
+        hospital.getListSalas().add(new Sala("S1", false));
+    }
+
+    @Test
+    public void modificarSala_existente() {
+        Sala salaModificada = new Sala("S1", true);
+
+        boolean resultado = hospital.modificarSala(salaModificada);
+
+        assertTrue(resultado);
+        assertEquals(salaModificada, hospital.getListSalas().get(0));
+    }
+
+    @Test
+    public void modificarSala_noExistente() {
+        Sala salaNueva = new Sala("S2", false);
+
+        boolean resultado = hospital.modificarSala(salaNueva);
+
+        assertFalse(resultado);
+        assertEquals(1, hospital.getListSalas().size());
+    }
+
 
 }
