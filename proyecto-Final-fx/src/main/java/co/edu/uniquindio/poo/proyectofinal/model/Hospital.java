@@ -239,7 +239,7 @@ public class Hospital {
             }
         }
 
-        Cita nuevaCita = new Cita( idCita, fecha, hora, medico,paciente);
+        Cita nuevaCita = new Cita( idCita, LocalDate.parse(fecha), hora, medico,paciente);
         listCitas.add(nuevaCita);
         return true;
     }

@@ -1,15 +1,9 @@
 package co.edu.uniquindio.poo.proyectofinal;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
+import co.edu.uniquindio.poo.proyectofinal.model.*;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
-
-import co.edu.uniquindio.poo.proyectofinal.model.Cita;
-import co.edu.uniquindio.poo.proyectofinal.model.HistorialMedico;
-import co.edu.uniquindio.poo.proyectofinal.model.Hospital;
-import co.edu.uniquindio.poo.proyectofinal.model.Medico;
-import co.edu.uniquindio.poo.proyectofinal.model.Paciente;
 
 public class HospitalTest {
     Hospital hospital= new Hospital("Cementerio uniquindiano", "000000.1");
@@ -20,35 +14,46 @@ public class HospitalTest {
     
 //Tests de creación/eliminación de Citas
 
-@Test
-public void crearCitaTest(){
+    @Test
+    public void crearCitaTest(){
     boolean resultado= hospital.crearCita(cita);
     assertTrue(resultado);
-}
+    }
 
-@Test
-public void eliminarCitaTest(){
+    @Test
+    public void eliminarCitaTest(){
     hospital.crearCita(cita);
     boolean borrado = hospital.eliminarCita(cita);
     assertTrue(borrado);
-}
+    }
 
 //Tests de creación/Eliminación de pacientes
 
-@Test
-public void addPaciente(){
+    @Test
+    public void addPaciente(){
     boolean pruebaUno= hospital.addPaciente(paciente);
     assertTrue(pruebaUno);
+    }
 
-}
-
-@Test
-public void borrarPaciente(){
+    @Test
+    public void borrarPaciente(){
     hospital.addPaciente(paciente);
     boolean borrado= hospital.eliminarPaciente(paciente);
     assertTrue(borrado);
+    }
 
+//Tests respecto a admin:
+@Test
+    void testAgregarSalaExitosamente() {
+    Hospital hospital = new Hospital("Hospital Central", "123456789");
+    assertTrue(hospital.agregarSala(new Sala("A101", true)));
 }
 
+    @Test
+    void testAgregarSalaDuplicada() {
+        Hospital hospital = new Hospital("Hospital Central", "123456789");
+        hospital.agregarSala(new Sala("A101", true)); // Primera vez, debería agregarla
+        assertFalse(hospital.agregarSala(new Sala("A101", true))); // Duplicada, debe fallar
+    }
 
 }
