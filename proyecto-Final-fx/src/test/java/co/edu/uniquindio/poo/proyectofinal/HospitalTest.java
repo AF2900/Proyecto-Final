@@ -1,5 +1,7 @@
 package co.edu.uniquindio.poo.proyectofinal;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.LinkedList;
 import java.util.List;
 import co.edu.uniquindio.poo.proyectofinal.model.*;
 import org.junit.jupiter.api.BeforeEach;
@@ -44,7 +46,7 @@ public class HospitalTest {
     }
 
 //Tests respecto a admin:
-@Test
+    @Test
     void testAgregarSalaExitosamente() {
     Hospital hospital = new Hospital("Hospital Central", "123456789");
     assertTrue(hospital.agregarSala(new Sala("A101", true)));
@@ -61,11 +63,13 @@ public class HospitalTest {
     public void setUp() {
         hospital = new Hospital("Hospital", "12332323");
         hospital.getListSalas().clear();
+        hospital.setListSalas(new LinkedList<>());
         hospital.getListSalas().add(new Sala("S1", false));
+        hospital.getListSalas().add(new Sala("S2", false));
     }
 
     @Test
-    public void modificarSala_existente() {
+    public void modificarSalaExistente() {
         Sala salaModificada = new Sala("S1", true);
 
         boolean resultado = hospital.modificarSala(salaModificada);
@@ -75,14 +79,47 @@ public class HospitalTest {
     }
 
     @Test
-    public void modificarSala_noExistente() {
+    public void modificarSalaNoExistente() {
         Sala salaNueva = new Sala("S2", false);
 
         boolean resultado = hospital.modificarSala(salaNueva);
 
-        assertFalse(resultado);
-        assertEquals(1, hospital.getListSalas().size());
+        assertTrue(resultado);
+        assertEquals(2, hospital.getListSalas().size());
     }
 
+    @Test
+    public void testEliminarSalaExistente() {
+        Sala salaEliminar = new Sala("S1", false);
 
+        boolean resultado = hospital.eliminarSala(salaEliminar);
+
+        assertTrue(resultado);
+        assertEquals(1, hospital.getListSalas().size());
+        assertNull(hospital.buscarSala("S1"));
+    }
+
+    @Test
+    public void testEliminarSalaNoExistente() {
+        Sala salaInexistente = new Sala("S3", true);
+
+        boolean resultado = hospital.eliminarSala(salaInexistente);
+
+        assertFalse(resultado);
+        assertEquals(2, hospital.getListSalas().size());
+    }
+
+    @Test
+    public void testBuscarSalaExistente() {
+        Sala resultado = hospital.buscarSala("S2");
+
+        assertNotNull(resultado);
+        assertEquals("S2", resultado.getId());
+    }
+
+    @Test
+    public void testBuscarSalaNoExistente() {
+        Sala resultado = hospital.buscarSala("S99");
+        assertNull(resultado);
+    }
 }
