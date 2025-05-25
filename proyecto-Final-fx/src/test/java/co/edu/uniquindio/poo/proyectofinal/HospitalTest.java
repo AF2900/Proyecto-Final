@@ -12,7 +12,7 @@ public class HospitalTest {
     Hospital hospital= new Hospital("Cementerio uniquindiano", "000000.1");
     Medico medico = new Medico("Dutch", "Vanderlinde", "090921", "3000",Especialidad.CARDIOLOGIA);
     HistorialMedico historial= new HistorialMedico("2221", null);
-    Paciente paciente= new Paciente("Juan carlos", "Bodoque", "092861", "5532", "Deudas",  historial, null);
+    Paciente paciente= new Paciente("Juan carlos", "Bodoque", "092861", "5532", "Deudas",  historial);
     Cita cita= new Cita("1987", LocalDate.of(2025, 5, 22), "17:40", medico, paciente);
     
 //Tests de creación/eliminación de Citas

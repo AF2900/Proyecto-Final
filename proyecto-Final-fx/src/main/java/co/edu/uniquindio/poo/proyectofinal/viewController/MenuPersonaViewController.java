@@ -68,7 +68,7 @@ public class MenuPersonaViewController {
             }
 
         }
-        
+
     public void setApplication(HelloApplication application) {
         this.application = application;
     }

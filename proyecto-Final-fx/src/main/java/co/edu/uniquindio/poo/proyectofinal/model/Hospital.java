@@ -149,10 +149,10 @@ public class Hospital {
     public boolean addPaciente(Paciente paciente) {
     for (Paciente p : listPacientes) {
        if (p.getId().equals(paciente.getId())) {
-            return false; // Ya existe un paciente con ese nombre
+            return false;
         }
     }
-    listPacientes.add(paciente); // Agregar fuera del for
+    listPacientes.add(paciente);
     return true;
 }
 
@@ -164,6 +164,7 @@ public class Hospital {
         }
         return null;
     }
+
     public boolean modificarPaciente(Paciente paciente) {
         for (int i = 0; i < listPacientes.size(); i++) {
             if (listPacientes.get(i).getNombre().equalsIgnoreCase(paciente.getNombre())) {
@@ -373,6 +374,7 @@ public HistorialMedico buscarHistorialMedico(String id) {
         }
         return null;
      }
+
 //==================================================================================================================
 //Otro que necesita FX
 

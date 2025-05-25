@@ -8,7 +8,7 @@ public class Paciente extends Persona {
     private String direccion;
     private HistorialMedico historialMedico;
 
-public Paciente(String nombre, String apellido,  String id, String telefono,String direccion,HistorialMedico historialMedico,Especialidad especialidad) {
+public Paciente(String nombre, String apellido,  String id, String telefono,String direccion,HistorialMedico historialMedico) {
     super(nombre, apellido,  id, telefono);
     this.direccion=direccion;
     this.historialMedico=historialMedico;
@@ -33,6 +33,7 @@ public void setDireccion(String direccion) {
     public void setHistorialMedico(HistorialMedico historialMedico) {
         this.historialMedico = historialMedico;
     }
+
 // consultar historialMedico
     public HistorialMedico consultarHistorialMedico() {
         if (historialMedico != null && historialMedico.getPaciente().getId().equals(this.getId())) {
@@ -41,14 +42,8 @@ public void setDireccion(String direccion) {
             System.out.println("Historial no encontrado o no pertenece al paciente.");
             return null;
         }
+
     }
-
-
-public void actualizarPaciente (Paciente paciente){
-
-
-}
-
 
 }
 
