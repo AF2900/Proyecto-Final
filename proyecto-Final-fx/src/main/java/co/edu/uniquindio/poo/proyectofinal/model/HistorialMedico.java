@@ -14,6 +14,14 @@ public class HistorialMedico {
         this.id = id;
     }
 
+    public HistorialMedico() {
+
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
     public Paciente getPaciente() {
         return paciente;
     }

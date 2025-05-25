@@ -8,23 +8,23 @@ public class Paciente extends Persona {
     private String direccion;
     private HistorialMedico historialMedico;
 
-public Paciente(String nombre, String apellido,  String id, String telefono,String direccion,HistorialMedico historialMedico) {
-    super(nombre, apellido,  id, telefono);
-    this.direccion=direccion;
-    this.historialMedico=historialMedico;
+    public Paciente(String nombre, String apellido, String id, String telefono, String direccion, HistorialMedico historialMedico) {
+        super(nombre, apellido, id, telefono);
+        this.direccion = direccion;
+        this.historialMedico = historialMedico;
+    }
 
+    public Paciente() {
+        super();
+    }
 
-}
+    public String getDireccion() {
+        return direccion;
+    }
 
-
-public String getDireccion() {
-    return direccion;
-}
-
-public void setDireccion(String direccion) {
-    this.direccion = direccion;
-}
-
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 
     public HistorialMedico getHistorialMedico() {
         return historialMedico;
@@ -34,7 +34,7 @@ public void setDireccion(String direccion) {
         this.historialMedico = historialMedico;
     }
 
-// consultar historialMedico
+    // consultar historialMedico
     public HistorialMedico consultarHistorialMedico() {
         if (historialMedico != null && historialMedico.getPaciente().getId().equals(this.getId())) {
             return historialMedico;
@@ -42,8 +42,20 @@ public void setDireccion(String direccion) {
             System.out.println("Historial no encontrado o no pertenece al paciente.");
             return null;
         }
-
     }
 
-}
 
+    public void actualizarPaciente(Paciente paciente) {
+        if (paciente == null) {
+            System.out.println("El paciente proporcionado es nulo.");
+            return;
+        }
+
+        this.setNombre(paciente.getNombre());
+        this.setId(paciente.getId());
+        this.setApellido(paciente.getApellido());
+        this.setDireccion(paciente.getDireccion());
+        this.setTelefono(paciente.getTelefono());
+        this.setHistorialMedico(paciente.getHistorialMedico());
+    }
+}
