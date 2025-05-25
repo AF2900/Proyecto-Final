@@ -7,11 +7,13 @@ import java.util.LinkedList;
 
 public class Medico extends Persona {
   private LinkedList<Paciente> listPacientes;
+  private Especialidad especialidad;
 
 
-  public Medico(String nombre, String apellido, String documentoIdentidad, String id, String telefono) {
-      super(nombre, apellido, documentoIdentidad, id, telefono);
+  public Medico(String nombre, String apellido, String id, String telefono, Especialidad especialidad) {
+      super(nombre, apellido, id, telefono);
     this.listPacientes = new LinkedList<>();
+    this.especialidad = especialidad;
 
   }
 
@@ -31,4 +33,12 @@ public class Medico extends Persona {
   public void setListPacientes(LinkedList<Paciente> listPacientes) {
     this.listPacientes = listPacientes;
   }
+
+    public Especialidad getEspecialidad() {
+        return especialidad;
+    }
+
+    public void setEspecialidad(Especialidad especialidad) {
+        this.especialidad = especialidad;
+    }
 }

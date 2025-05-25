@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.proyectofinal;
-import static org.junit.jupiter.api.Assertions.*;
 
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.LinkedList;
 import java.util.List;
 import co.edu.uniquindio.poo.proyectofinal.model.*;
@@ -10,9 +10,9 @@ import java.time.LocalDate;
 
 public class HospitalTest {
     Hospital hospital= new Hospital("Cementerio uniquindiano", "000000.1");
-    Medico medico = new Medico("Dutch", "Vanderlinde", "090921", "900", "09213");
+    Medico medico = new Medico("Dutch", "Vanderlinde", "090921", "3000",Especialidad.CARDIOLOGIA);
     HistorialMedico historial= new HistorialMedico("2221", null);
-    Paciente paciente= new Paciente("Juan carlos", "Bodoque", "092861", "5532", "Deudas", "Casa 1", historial, null);
+    Paciente paciente= new Paciente("Juan carlos", "Bodoque", "092861", "5532", "Deudas",  historial, null);
     Cita cita= new Cita("1987", LocalDate.of(2025, 5, 22), "17:40", medico, paciente);
     
 //Tests de creación/eliminación de Citas
@@ -50,7 +50,7 @@ public class HospitalTest {
     void testAgregarSalaExitosamente() {
     Hospital hospital = new Hospital("Hospital Central", "123456789");
     assertTrue(hospital.agregarSala(new Sala("A101", true)));
-}
+    }
 
     @Test
     void testAgregarSalaDuplicada() {
