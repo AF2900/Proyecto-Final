@@ -5,7 +5,7 @@
  * 
  * Licencia GNU/GPL V3.0 (https://raw.githubusercontent.com/grid-uq/poo/main/LICENSE) 
  */
-package co.edu.uniquindio.poo;
+package co.edu.uniquindio.poo.proyectofinal;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.logging.Logger;

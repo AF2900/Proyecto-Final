@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.proyectofinal;
 
 import co.edu.uniquindio.poo.proyectofinal.model.Hospital;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -29,4 +30,6 @@ public class HelloController {
         txtReporteOcupacion.setText(reporte);
     }
 
+    public void onHelloButtonClick(ActionEvent actionEvent) {
+    }
 }

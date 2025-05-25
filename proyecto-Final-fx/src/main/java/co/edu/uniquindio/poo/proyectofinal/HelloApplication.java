@@ -28,7 +28,7 @@ public class HelloApplication extends Application {
         inicializarData();
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(HelloApplication.class.getResource("InicioView.fxml"));
+            loader.setLocation(HelloApplication.class.getResource("/co/edu/uniquindio/poo/proyectofinal/FXML/inicio.fxml"));
             javafx.scene.layout.Pane rootLayout = (javafx.scene.layout.Pane) loader.load();
             InicioViewController primaryController = loader.getController();
             primaryController.setApplication(this);
@@ -47,7 +47,7 @@ public class HelloApplication extends Application {
     }
 
     public void inicializarData() {
-        Medico medico = new Medico("Jham Carlos", "Gomez", "121700", "32020", Especialidad.MEDICINA_GENERAL);
+        Medico medico = new Medico("Jhan Carlos", "Gomez", "121700", "32020", Especialidad.MEDICINA_GENERAL);
         hospital.addMedico(medico);
         Medicamiento medicamento = new Medicamiento("4554", "acteaminofen", 10.0);
         hospital.addMedicamento(medicamento);

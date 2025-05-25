@@ -23,6 +23,7 @@ public class Hospital {
         this.listPacientes = new LinkedList<>();
         this.listSalas = new LinkedList<>();
         this.listHistorial = new LinkedList<>();
+        this.listMedicamiento = new LinkedList<>();
 
     }
 
