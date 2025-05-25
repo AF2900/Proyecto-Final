@@ -53,11 +53,11 @@ public class InicioViewController {
 
         @FXML
         void abrirPersona(ActionEvent event) {
-            /*try {
-                application.MenuProcedimiento();
+            try {
+                application.GestionUsuarios();
             } catch (Exception e) {
                 e.printStackTrace();
-            }*/
+            }
 
         }
 
