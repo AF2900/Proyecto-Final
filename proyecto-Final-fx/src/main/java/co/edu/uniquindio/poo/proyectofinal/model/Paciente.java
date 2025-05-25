@@ -13,15 +13,20 @@ public Paciente(String nombre, String apellido,  String id, String telefono,Stri
     this.direccion=direccion;
     this.historialMedico=historialMedico;
 
-
 }
 
+    public Paciente() {
+        super();
+    }
 
-public String getDireccion() {
+
+    public String getDireccion() {
     return direccion;
 }
 
-public void setDireccion(String direccion) {
+
+
+    public void setDireccion(String direccion) {
     this.direccion = direccion;
 }
 
@@ -33,7 +38,8 @@ public void setDireccion(String direccion) {
     public void setHistorialMedico(HistorialMedico historialMedico) {
         this.historialMedico = historialMedico;
     }
-// consultar historialMedico
+
+    // consultar historialMedico
     public HistorialMedico consultarHistorialMedico() {
         if (historialMedico != null && historialMedico.getPaciente().getId().equals(this.getId())) {
             return historialMedico;
@@ -43,12 +49,18 @@ public void setDireccion(String direccion) {
         }
     }
 
+    //Estaba incompleto, ya lo completé, por ello, ahora hay más pruebas tanto de este como de consultar historialMedico
+    public void actualizarPaciente (Paciente paciente){
+        if (paciente == null) {
+            System.out.println("El paciente proporcionado es nulo.");
+            return;
+        }
 
-public void actualizarPaciente (Paciente paciente){
-
-
+        this.setNombre(paciente.getNombre());
+        this.setId(paciente.getId());
+        this.setApellido(paciente.getApellido());
+        this.setDireccion(paciente.getDireccion());
+        this.setTelefono(paciente.getTelefono());
+        this.setHistorialMedico(paciente.getHistorialMedico());
+    }
 }
-
-
-}
-
