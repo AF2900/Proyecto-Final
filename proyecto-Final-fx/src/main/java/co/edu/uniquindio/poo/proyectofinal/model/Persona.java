@@ -6,16 +6,15 @@ import java.util.ArrayList;
 public abstract class Persona {
     protected String nombre;
     protected String apellido;
-    protected String documentoIdentidad;
     protected String id;
     protected String telefono;
 
 
 
-    public Persona(String nombre, String apellido, String documentoIdentidad, String id, String telefono) {
+    public Persona(String nombre, String apellido, String id, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.documentoIdentidad = documentoIdentidad;
+
         this.id = id;
         this.telefono = telefono;
 
@@ -32,12 +31,7 @@ public abstract class Persona {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    public String getDocumentoIdentidad() {
-        return documentoIdentidad;
-    }
-    public void setDocumentoIdentidad(String documentoIdentidad) {
-        this.documentoIdentidad = documentoIdentidad;
-    }
+
     public String getId() {
         return id;
     }

@@ -10,6 +10,7 @@ public class Hospital {
     private LinkedList<Paciente> listPacientes;
     private LinkedList<RegistroMedico>listRegistro;
     private LinkedList<HistorialMedico>listHistorial;
+    private LinkedList<Medicamiento> listMedicamiento;
 
     private LinkedList<Sala>listSalas;
 
@@ -21,6 +22,7 @@ public class Hospital {
         this.listMedicos = new LinkedList<>();
         this.listPacientes = new LinkedList<>();
         this.listSalas = new LinkedList<>();
+        this.listHistorial = new LinkedList<>();
 
     }
 
@@ -87,8 +89,15 @@ public class Hospital {
         this.listSalas = listSalas;
     }
 
+    public LinkedList<Medicamiento> getListMedicamiento() {
+        return listMedicamiento;
+    }
 
-//==================================================================================================================
+    public void setListMedicamiento(LinkedList<Medicamiento> listMedicamiento) {
+        this.listMedicamiento = listMedicamiento;
+    }
+
+    //==================================================================================================================
     //CRUD de Medico
 
     public boolean addMedico(Medico medico) {
@@ -219,6 +228,51 @@ public class Hospital {
         }
         return flag;
     }
+
+//==================================================================================================================
+//CRUD MEDICAMENTO
+
+public boolean addMedicamento(Medicamiento medicamento ) {
+    for (Medicamiento m : listMedicamiento) {
+        if (m.getId().equals(medicamento.getId())) {
+            return false;
+        }
+    }
+    listMedicamiento.add(medicamento);
+    return true;
+}
+
+    public Medicamiento leerMedicamento(String idMedicamento) {
+        for (Medicamiento m : listMedicamiento) {
+            if (m.getId().equalsIgnoreCase(idMedicamento)) {
+                return m;
+            }
+        }
+        return null;
+    }
+
+    public boolean modificarMedicamento(Medicamiento medicamento) {
+        for (int i = 0; i < listMedicamiento.size(); i++) {
+            if (listMedicamiento.get(i).getId().equalsIgnoreCase(medicamento.getId())) {
+                listMedicamiento.set(i, medicamento);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean eliminarMedicamento(Medicamiento medicamiento) {
+        boolean flag = false;
+        for (Cita c : listCitas) {
+            if (c.getId().equalsIgnoreCase(medicamiento.getId())) {
+                listCitas.remove(c);
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
+
 
 
 //==================================================================================================================
@@ -414,6 +468,20 @@ public boolean agregarSala(Sala sala) {
                     .append("\n");
         }
         return reporte.toString();
+    }
+    //==================================================================================================================
+// modificar Datos Personales
+
+    public boolean modificarDatosPersonales(String id,String nuevoNombre, String nuevoApellido, String nuevoTelefono, String nuevaDireccion){
+        Paciente paciente= leerPaciente(id);
+        if(paciente!= null){
+            paciente.setNombre(nuevoNombre);
+            paciente.setApellido(nuevoApellido);
+            paciente.setTelefono(nuevoTelefono);
+            paciente.setDireccion(nuevaDireccion);
+            return true;
+        }
+        return false;
     }
 
 }
