@@ -17,14 +17,6 @@ public class Medico extends Persona {
 
   }
 
-    public HistorialMedico leerHistorialMedicoPaciente(String idPaciente) {
-        for ( Paciente paciente : listPacientes ) {
-            if (paciente.getId().equalsIgnoreCase(idPaciente)) {
-                return paciente.getHistorialMedico();
-            }
-        }
-        return null;
-    }
 
   public LinkedList<Paciente> getListPacientes() {
     return listPacientes;

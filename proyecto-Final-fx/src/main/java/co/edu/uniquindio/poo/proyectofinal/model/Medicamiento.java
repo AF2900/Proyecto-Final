@@ -1,22 +1,22 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
 public class Medicamiento {
-    private String id;
+    private String idMedicamiento;
     private String nombre;
     private double dosis;
 
-    public Medicamiento(String id, String nombre, double dosis) {
-        this.id = id;
+    public Medicamiento(String idMedicamiento, String nombre, double dosis) {
+        this.idMedicamiento = idMedicamiento;
         this.nombre = nombre;
         this.dosis = dosis;
     }
 
-    public String getId() {
-        return id;
+    public String getIdMedicamiento() {
+        return idMedicamiento;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdMedicamiento(String idMedicamiento) {
+        this.idMedicamiento = idMedicamiento;
     }
 
     public String getNombre() {

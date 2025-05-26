@@ -5,13 +5,14 @@ import java.util.LinkedList;
 //movi el constructor y una variable ;)
 
 public class HistorialMedico {
-    private String id;
+    private String idHistorialMedico;
     private Paciente paciente;
     private List<RegistroMedico> lista = new LinkedList<RegistroMedico>();
     
-    public HistorialMedico(String id, List<RegistroMedico> lista) {
+    public HistorialMedico(String idHistorialMedico, Paciente paciente, List<RegistroMedico> lista) {
         this.lista = lista;
-        this.id = id;
+        this.paciente = paciente;
+        this.idHistorialMedico = idHistorialMedico;
     }
 
     public HistorialMedico() {
@@ -34,13 +35,15 @@ public class HistorialMedico {
         this.lista = lista;
     }
 
-    public String getId() {
-        return id;
+    public String getIdHistorialMedico() {
+        return idHistorialMedico;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdHistorialMedico(String idHistorialMedico) {
+        this.idHistorialMedico = idHistorialMedico;
     }
+
+
 
     public void buscarPaciente(String id, List<Paciente> pacientes){
 for(Paciente p : pacientes){

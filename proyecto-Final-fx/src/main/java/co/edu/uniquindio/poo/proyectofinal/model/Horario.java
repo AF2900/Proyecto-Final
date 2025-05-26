@@ -4,24 +4,24 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Horario {
-    private String id;
+    private String idHorario;
     private LocalDate fecha;
     private LocalTime hora;
     private Jornada jornada;
 
-    public Horario(String id, LocalDate fecha, LocalTime hora, Jornada jornada) {
-        this.id = id;
+    public Horario(String idHorario, LocalDate fecha, LocalTime hora, Jornada jornada) {
+        this.idHorario = idHorario;
         this.fecha = fecha;
         this.hora = hora;
         this.jornada = jornada;
     }
 
-    public String getId() {
-        return id;
+    public String getIdHorario() {
+        return idHorario;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdHorario(String idHorario) {
+        this.idHorario = idHorario;
     }
 
     public LocalDate getFecha() {

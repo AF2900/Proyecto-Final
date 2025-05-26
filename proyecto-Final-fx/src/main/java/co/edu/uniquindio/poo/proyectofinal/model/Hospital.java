@@ -192,7 +192,7 @@ public class Hospital {
 
     public boolean crearCita(Cita cita) {
         for (Cita c : listCitas) {
-            if (c.getId().equals(cita.getId())) {
+            if (c.getidCita().equals(cita.getidCita())) {
                 return false;
             }
         }
@@ -202,7 +202,7 @@ public class Hospital {
 
     public Cita leerCita(String idCita) {
         for (Cita c : listCitas) {
-            if (c.getId().equalsIgnoreCase(idCita)) {
+            if (c.getidCita().equalsIgnoreCase(idCita)) {
                 return c;
             }
         }
@@ -211,7 +211,7 @@ public class Hospital {
 
     public boolean modificarCita(Cita cita) {
         for (int i = 0; i < listCitas.size(); i++) {
-            if (listCitas.get(i).getId().equalsIgnoreCase(cita.getId())) {
+            if (listCitas.get(i).getidCita().equalsIgnoreCase(cita.getidCita())) {
                 listCitas.set(i, cita);
                 return true;
             }
@@ -222,7 +222,7 @@ public class Hospital {
     public boolean eliminarCita(Cita cita) {
         boolean flag = false;
         for (Cita c : listCitas) {
-            if (c.getId().equalsIgnoreCase(cita.getId())) {
+            if (c.getidCita().equalsIgnoreCase(cita.getidCita())) {
                 listCitas.remove(c);
                 flag = true;
                 break;
@@ -236,7 +236,7 @@ public class Hospital {
 
 public boolean addMedicamento(Medicamiento medicamento ) {
     for (Medicamiento m : listMedicamiento) {
-        if (m.getId().equals(medicamento.getId())) {
+        if (m.getIdMedicamiento().equals(medicamento.getIdMedicamiento())) {
             return false;
         }
     }
@@ -246,7 +246,7 @@ public boolean addMedicamento(Medicamiento medicamento ) {
 
     public Medicamiento leerMedicamento(String idMedicamento) {
         for (Medicamiento m : listMedicamiento) {
-            if (m.getId().equalsIgnoreCase(idMedicamento)) {
+            if (m.getIdMedicamiento().equalsIgnoreCase(idMedicamento)) {
                 return m;
             }
         }
@@ -255,7 +255,7 @@ public boolean addMedicamento(Medicamiento medicamento ) {
 
     public boolean modificarMedicamento(Medicamiento medicamento) {
         for (int i = 0; i < listMedicamiento.size(); i++) {
-            if (listMedicamiento.get(i).getId().equalsIgnoreCase(medicamento.getId())) {
+            if (listMedicamiento.get(i).getIdMedicamiento().equalsIgnoreCase(medicamento.getIdMedicamiento())) {
                 listMedicamiento.set(i, medicamento);
                 return true;
             }
@@ -265,9 +265,9 @@ public boolean addMedicamento(Medicamiento medicamento ) {
 
     public boolean eliminarMedicamento(Medicamiento medicamiento) {
         boolean flag = false;
-        for (Cita c : listCitas) {
-            if (c.getId().equalsIgnoreCase(medicamiento.getId())) {
-                listCitas.remove(c);
+        for (Medicamiento m : listMedicamiento) {
+            if (m.getIdMedicamiento().equalsIgnoreCase(medicamiento.getIdMedicamiento())) {
+                listCitas.remove(m);
                 flag = true;
                 break;
             }
@@ -305,7 +305,7 @@ public boolean addMedicamento(Medicamiento medicamento ) {
 //cancelar Cita
 public boolean cancelarCitaPorId(String idCita) {
     for (Cita c : listCitas) {
-        if (c.getId().equals(idCita)) {
+        if (c.getidCita().equals(idCita)) {
             listCitas.remove(c);
             System.out.println("Cita cancelada correctamente.");
             return true;
@@ -322,7 +322,7 @@ public boolean cancelarCitaPorId(String idCita) {
 public boolean crearRegistro(RegistroMedico registroMedico){
         boolean flag = false;
         for (RegistroMedico r : listRegistro) {
-            if (r.getId().equals(registroMedico.getId())) {
+            if (r.getIdRegistro().equals(registroMedico.getIdRegistro())) {
                 return flag;
             }
             listRegistro.add(registroMedico);
@@ -331,9 +331,9 @@ public boolean crearRegistro(RegistroMedico registroMedico){
         return flag;
 }
 
-public RegistroMedico buscarRegistro(String id) {
+public RegistroMedico buscarRegistro(String idRegistro) {
         for (RegistroMedico r : listRegistro) {
-            if (r.getId().equalsIgnoreCase(id)) {
+            if (r.getIdRegistro().equalsIgnoreCase(idRegistro)) {
                 return r;
             }
         }
@@ -354,32 +354,44 @@ public void enviarRecordatorio() {
 //==================================================================================================================
 //Funciones de Médicos
 
-public boolean crearHistorial(HistorialMedico historial){
-        boolean flag = false;
+    public boolean crearHistorial(HistorialMedico historial){
         for (HistorialMedico r : listHistorial) {
-            if (r.getId().equals(historial.getId())) {
-                return flag;
+            if (r.getIdHistorialMedico().equals(historial.getIdHistorialMedico())) {
+                return false; // ya existe, no se agrega
             }
-            listHistorial.add(historial);
-            flag = true;
         }
-        return flag;
-}
+        // Si no encontró duplicados, lo agrega aquí:
+        listHistorial.add(historial);
+        return true;
+    }
 
-public HistorialMedico buscarHistorialMedico(String id) {
+
+public HistorialMedico buscarHistorialMedico(String idHistorialMedico) {
         for (HistorialMedico r : listHistorial) {
-            if (r.getId().equalsIgnoreCase(id)) {
+            if (r.getIdHistorialMedico().equalsIgnoreCase(idHistorialMedico)) {
                 return r;
             }
         }
         return null;
      }
 
+    public HistorialMedico buscarHistorialMedicoPaciente(Paciente paciente) {
+        for (HistorialMedico historial : listHistorial) {
+            Paciente p = historial.getPaciente();
+            if (p != null && p.getId().equalsIgnoreCase(paciente.getId())) {
+                return historial;
+            }
+        }
+        return null;
+    }
+
+
+
 //==================================================================================================================
 //Otro que necesita FX
 
-public void mostrarHistorialMedico(String id) {
-    HistorialMedico historial = buscarHistorialMedico(id); 
+public void mostrarHistorialMedico(String idHistorialMedico) {
+    HistorialMedico historial = buscarHistorialMedico(idHistorialMedico);
 
     if (historial != null) {
         
@@ -392,7 +404,7 @@ public void mostrarHistorialMedico(String id) {
 public boolean agregarSala(Sala sala) {
     boolean flag = false;
     for (Sala s : listSalas) {
-        if (s.getId().equalsIgnoreCase(sala.getId())) {
+        if (s.getIdSala().equalsIgnoreCase(sala.getIdSala())) {
             return flag;
         }
     }
@@ -403,7 +415,7 @@ public boolean agregarSala(Sala sala) {
 
     public boolean modificarSala(Sala sala) {
         for (int i = 0; i < listSalas.size(); i++) {
-            if (listSalas.get(i).getId().equalsIgnoreCase(sala.getId())) {
+            if (listSalas.get(i).getIdSala().equalsIgnoreCase(sala.getIdSala())) {
                 listSalas.set(i, sala);
                 return true;
             }
@@ -412,12 +424,12 @@ public boolean agregarSala(Sala sala) {
     }
 
     public boolean eliminarSala(Sala sala) {
-        return listSalas.removeIf(s -> s.getId().equalsIgnoreCase(sala.getId()));
+        return listSalas.removeIf(s -> s.getIdSala().equalsIgnoreCase(sala.getIdSala()));
     }
 
-    public Sala buscarSala(String id) {
+    public Sala buscarSala(String idSala) {
         for (Sala sala : listSalas) {
-            if (sala.getId().equalsIgnoreCase(id)) {
+            if (sala.getIdSala().equalsIgnoreCase(idSala)) {
                 return sala;
             }
         }
@@ -451,7 +463,7 @@ public boolean agregarSala(Sala sala) {
     public String generarReporteCitas() {
         StringBuilder reporte = new StringBuilder();
         for (Cita c : listCitas) {
-            reporte.append("Cita ID: ").append(c.getId())
+            reporte.append("Cita ID: ").append(c.getidCita())
                     .append(", Paciente: ").append(c.getPaciente().getNombre())
                     .append(", Médico: ").append(c.getMedico().getNombre())
                     .append(", Fecha: ").append(c.getFecha())

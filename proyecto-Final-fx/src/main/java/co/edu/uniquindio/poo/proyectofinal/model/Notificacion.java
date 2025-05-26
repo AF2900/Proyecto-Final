@@ -1,20 +1,22 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
 public class Notificacion {
-    private String id;
+    private String idNotificacion;
     private String detalle;
+    private Paciente paciente;
 
-    public Notificacion(String id, String detalle) {
-        this.id = id;
+    public Notificacion(String idNotificacion, String detalle, Paciente paciente) {
+        this.idNotificacion = idNotificacion;
         this.detalle = detalle;
+        this.paciente = paciente;
     }
 
-    public String getId() {
-        return id;
+    public String getIdNotificacion() {
+        return idNotificacion;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdNotificacion(String idNotificacion) {
+        this.idNotificacion = idNotificacion;
     }
 
     public String getDetalle() {
@@ -24,5 +26,12 @@ public class Notificacion {
     public void setDetalle(String detalle) {
         this.detalle = detalle;
     }
+    public Paciente getPaciente() {
+        return paciente;
+    }
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+    
     
 }

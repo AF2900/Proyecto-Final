@@ -1,15 +1,15 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
 public class RegistroMedico {
-    private String id;
+    private String idRegistro;
     private String fecha;
     private String hora;
     private String diagnostico;
     private String tratamiento;
     private String observaciones;
 
-    public RegistroMedico(String id ,String fecha,String hora,String  diagnostico, String tratamiento, String observaciones) {
-        this.id = id;
+    public RegistroMedico(String idRegistro ,String fecha,String hora,String  diagnostico, String tratamiento, String observaciones) {
+        this.idRegistro = idRegistro;
         this.fecha = fecha;
         this.hora = hora;
         this.diagnostico = diagnostico;
@@ -17,12 +17,12 @@ public class RegistroMedico {
         this.observaciones = observaciones;
     }
 
-    public String getId() {
-        return id;
+    public String getIdRegistro() {
+        return idRegistro;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdRegistro(String idRegistro) {
+        this.idRegistro = idRegistro;
     }
 
     public String getHora() {
@@ -59,5 +59,17 @@ public class RegistroMedico {
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
-    
+
+
+    @Override
+    public String toString() {
+        return "RegistroMedico{" +
+                "idRegistro='" + idRegistro + '\'' +
+                ", fecha='" + fecha + '\'' +
+                ", hora='" + hora + '\'' +
+                ", diagnostico='" + diagnostico + '\'' +
+                ", tratamiento='" + tratamiento + '\'' +
+                ", observaciones='" + observaciones + '\'' +
+                '}';
+    }
 }

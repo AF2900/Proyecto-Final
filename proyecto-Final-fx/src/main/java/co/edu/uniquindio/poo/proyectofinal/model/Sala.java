@@ -8,21 +8,21 @@ public class Sala {
     public char[] capacidad;
     public char[] nombre;
 
-    private String id;
+    private String idSala;
     private boolean disposicion;
 
-    public Sala(String id, boolean disposicion) {
-        this.id = id;
+    public Sala(String idSala, boolean disposicion) {
+        this.idSala = idSala;
         this.disposicion = disposicion;
         this.pacientesAsignados = new LinkedList<>();
     }
 
-    public String getId() {
-        return id;
+    public String getIdSala() {
+        return idSala;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdSala(String idSala) {
+        this.idSala = idSala;
     }
 
     public boolean isDisposicion() {

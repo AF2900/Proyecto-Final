@@ -51,11 +51,11 @@ public class MenuPersonaViewController {
 
         @FXML
         void abrirPaciente(ActionEvent event) {
-             /*try {
-                application.MenuProcedimiento();
+             try {
+                application.Paciente();
             } catch (Exception e) {
                 e.printStackTrace();
-            }*/
+            }
 
         }
 

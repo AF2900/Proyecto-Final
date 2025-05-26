@@ -5,26 +5,26 @@ import java.time.LocalDate;
 //completada
 
 public class Cita {
-    private String id;
+    private String idCita;
     private LocalDate fecha;
     private String hora;
     private Medico medico;
     private Paciente paciente;
 
-    public Cita(String id, LocalDate fecha, String hora, Medico medico, Paciente paciente) {
-        this.id = id;
+    public Cita(String idCita, LocalDate fecha, String hora, Medico medico, Paciente paciente) {
+        this.idCita = idCita;
         this.fecha = fecha;
         this.hora = hora;
         this.medico = medico;
         this.paciente = paciente;
     }
 
-    public String getId() {
-        return id;
+    public String getidCita() {
+        return idCita;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setidCita(String idCita) {
+        this.idCita = idCita;
     }
 
     public LocalDate getFecha() {
@@ -62,7 +62,7 @@ public class Cita {
     @Override
     public String toString() {
         return "Cita{" +
-                "id='" + id + '\'' +
+                "idCita='" + idCita + '\'' +
                 ", fecha=" + fecha +
                 ", hora='" + hora + '\'' +
                 ", medico=" + medico +
