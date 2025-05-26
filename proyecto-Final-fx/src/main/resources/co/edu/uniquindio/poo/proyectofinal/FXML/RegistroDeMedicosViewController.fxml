@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="228.0" layoutY="14.0" text="Registro de médicos">
+         <font>
+            <Font name="Georgia" size="30.0" />
+         </font>
+      </Label>
+      <TextField layoutX="203.0" layoutY="93.0" />
+      <Button layoutX="14.0" layoutY="355.0" mnemonicParsing="false" text="Atrás" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ChatGPT%20Image%2025%20may%202025,%2015_14_49.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="232.0" layoutY="59.0" text="Nombre">
+         <font>
+            <Font name="Georgia" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="437.0" layoutY="59.0" text="Apellido">
+         <font>
+            <Font name="Georgia" size="22.0" />
+         </font>
+      </Label>
+      <TextField layoutX="414.0" layoutY="93.0" />
+      <Label layoutX="229.0" layoutY="134.0" text="Teléfono">
+         <font>
+            <Font name="Georgia" size="22.0" />
+         </font>
+      </Label>
+      <TextField layoutX="203.0" layoutY="173.0" />
+      <TextField layoutX="414.0" layoutY="173.0" />
+      <Label layoutX="430.0" layoutY="134.0" text="Dirección">
+         <font>
+            <Font name="Georgia" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="256.0" layoutY="240.0" prefHeight="19.0" prefWidth="278.0" text="Por favor, seleccione una especialidad">
+         <font>
+            <Font name="Georgia" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="176.0" layoutY="268.0" mnemonicParsing="false" text="MedicinaGeneral" />
+      <Button layoutX="175.0" layoutY="307.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Pediatría" />
+      <Button layoutX="175.0" layoutY="354.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Odontología" />
+      <Button layoutX="323.0" layoutY="268.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Cartiología" />
+      <Button layoutX="323.0" layoutY="307.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Psiquiatría" />
+      <Button layoutX="323.0" layoutY="354.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Dermatología" />
+      <Button layoutX="457.0" layoutY="268.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Neurología" />
+      <Button layoutX="457.0" layoutY="307.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Ginecología" />
+      <Button layoutX="457.0" layoutY="354.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" text="Urología" />
+      <Button layoutX="335.0" layoutY="208.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="82.0" text="Guardar" />
+   </children>
+</AnchorPane>

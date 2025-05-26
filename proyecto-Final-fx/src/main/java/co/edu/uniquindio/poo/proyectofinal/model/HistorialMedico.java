@@ -19,6 +19,9 @@ public class HistorialMedico {
 
     }
 
+    public HistorialMedico(String number, Object o) {
+    }
+
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }

@@ -11,8 +11,8 @@ import java.time.LocalDate;
 public class HospitalTest {
     Hospital hospital= new Hospital("Cementerio uniquindiano", "000000.1");
     Medico medico = new Medico("Dutch", "Vanderlinde", "090921", "3000",Especialidad.CARDIOLOGIA);
-    HistorialMedico historial= new HistorialMedico("2221", null,);
-    Paciente paciente= new Paciente("Juan carlos", "Bodoque", "092861", "5532", "Deudas",  historial);
+    HistorialMedico historial= new HistorialMedico("2221", null);
+    Paciente paciente= new Paciente("Juan carlos", "Bodoque", "092861", "5532", "Deudas");
     Cita cita= new Cita("1987", LocalDate.of(2025, 5, 22), "17:40", medico, paciente);
     
 //Tests de creación/eliminación de Citas
@@ -26,7 +26,7 @@ public class HospitalTest {
     @Test
     public void eliminarCitaTest(){
     hospital.crearCita(cita);
-    boolean borrado = hospital.eliminarCita(cita);
+    boolean borrado = hospital.eliminarCita(cita.getidCita());
     assertTrue(borrado);
     }
 
@@ -41,7 +41,7 @@ public class HospitalTest {
     @Test
     public void borrarPaciente(){
     hospital.addPaciente(paciente);
-    boolean borrado= hospital.eliminarPaciente(paciente);
+    boolean borrado= hospital.eliminarPaciente(paciente.getId());
     assertTrue(borrado);
     }
 
@@ -114,7 +114,7 @@ public class HospitalTest {
         Sala resultado = hospital.buscarSala("S2");
 
         assertNotNull(resultado);
-        assertEquals("S2", resultado.getId());
+        assertEquals("S2", resultado.getIdSala());
     }
 
     @Test

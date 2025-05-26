@@ -57,7 +57,7 @@ public class PacienteController {
             System.err.println("Error: Paciente con ID " + id + " no encontrado.");
             return false;
         }
-        return hospital.eliminarPaciente(paciente);
+        return hospital.eliminarPaciente(String.valueOf(paciente));
     }
 
     /**
@@ -76,7 +76,7 @@ public class PacienteController {
             System.err.println("Error: Paciente con ID " + id + " no encontrado.");
             return false;
         }
-        return hospital.modificarPaciente(paciente);
+        return hospital.addPaciente(paciente);
     }
 
 

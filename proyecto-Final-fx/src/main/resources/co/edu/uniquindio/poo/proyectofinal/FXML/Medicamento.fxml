@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="556.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.PacienteVC">
+   <children>
+      <AnchorPane prefHeight="587.0" prefWidth="838.0">
+         <children>
+            <TableView fx:id="tb_Paciente" layoutX="363.0" layoutY="382.0" prefHeight="170.0" prefWidth="422.0">
+               <columns>
+                  <TableColumn fx:id="tbc_Nombre" prefWidth="123.19999408721924" text="Nombre" />
+                  <TableColumn fx:id="tbc_Apellido" prefWidth="103.19999694824219" text="Id" />
+                  <TableColumn fx:id="tbc_cedula" prefWidth="114.58349609375" text="Dosis" />
+               </columns>
+            </TableView>
+            <Label layoutX="24.0" layoutY="240.0" prefHeight="30.0" prefWidth="80.0" text="Nombre">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <Label layoutX="55.0" layoutY="298.0" text="Id">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <TextField fx:id="txt_Apellido" layoutX="114.0" layoutY="348.0" prefHeight="38.0" prefWidth="164.0" />
+            <TextField fx:id="txt_Cedula" layoutX="114.0" layoutY="236.0" prefHeight="38.0" prefWidth="164.0" />
+            <Label layoutX="40.0" layoutY="352.0" text="Dosis">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+            <TextField fx:id="txt_Telefono" layoutX="114.0" layoutY="294.0" prefHeight="38.0" prefWidth="164.0" />
+            <Button fx:id="btt_Agregar" layoutX="397.0" layoutY="221.0" mnemonicParsing="false" onAction="#AgregarPaciente" prefHeight="38.0" prefWidth="94.0" text="Agregar" />
+            <Button fx:id="btt_Actualizar" layoutX="552.0" layoutY="217.0" mnemonicParsing="false" onAction="#ActualizarPaciente" prefHeight="38.0" prefWidth="94.0" text="Actualizar" />
+            <Button fx:id="btt_Eliminar" layoutX="397.0" layoutY="294.0" mnemonicParsing="false" onAction="#EliminarPaciente" prefHeight="38.0" prefWidth="94.0" text="Eliminar" />
+            <Button fx:id="btt_Limpiar" layoutX="552.0" layoutY="294.0" mnemonicParsing="false" onAction="#LimpiarPaciente" prefHeight="38.0" prefWidth="94.0" text="Limpiar" />
+            <Button fx:id="Volver" layoutX="21.0" layoutY="532.0" mnemonicParsing="false" onAction="#Volver" prefHeight="30.0" prefWidth="72.0" text="Volver" />
+            <Button fx:id="btn_Notificacion" layoutX="705.0" layoutY="255.0" mnemonicParsing="false" onAction="#abrirNotificacion" prefHeight="38.0" prefWidth="94.0" text="Notificacion" />
+            <ImageView fitHeight="198.0" fitWidth="222.0" layoutX="3.0">
+               <image>
+                  <Image url="@ChatGPT%20Image%2025%20may%202025,%2015_14_49.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="364.0" layoutY="46.0" prefHeight="59.0" prefWidth="377.0" text="Sección medicamentos">
+               <font>
+                  <Font name="Georgia" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

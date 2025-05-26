@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 import java.time.LocalDate;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Hospital {
     private String nombre;
@@ -102,46 +103,44 @@ public class Hospital {
     //CRUD de Medico
 
     public boolean addMedico(Medico medico) {
-        boolean flag = false;
-        for (Medico m : listMedicos) {
-            if (m.getNombre().equals(medico.getNombre())) {
-                return flag;
-            }
-            listMedicos.add(medico);
-            flag = true;
+    for (Medico m : listMedicos) {
+       if (m.getId().equals(medico.getId())) {
+            return false;
         }
-        return flag;
+    }
+    listMedicos.add(medico);
+    return true;
     }
 
-    public Medico leerMedico(String nombre) {
+    public Medico leerMedico(String id) {
         for (Medico m : listMedicos) {
-            if (m.getNombre().equalsIgnoreCase(nombre)) {
+            if (m.getId().equalsIgnoreCase(id)) {
                 return m;
             }
         }
         return null;
     }
 
-    public boolean modificarMedico(Medico medico) {
-        for (int i = 0; i < listMedicos.size(); i++) {
-            if (listMedicos.get(i).getNombre().equalsIgnoreCase(medico.getNombre())) {
-                listMedicos.set(i, medico);
+    public boolean modificarMedico(String id, String nuevoNombre, String nuevoApellido, String nuevoTelefono) {
+        for (Medico m : listMedicos) {
+            if (m.getId().equalsIgnoreCase(id)) {
+                m.setNombre(nuevoNombre);
+                m.setApellido(nuevoApellido);
+                m.setTelefono(nuevoTelefono);
                 return true;
             }
         }
         return false;
     }
 
-    public boolean eliminarMedico(Medico medico) {
-        boolean flag = false;
-        for (Medico m : listMedicos) {
-            if (m.getId().equalsIgnoreCase(medico.getId())) {
-                listMedicos.remove(m);
-                flag = true;
-                break;
+    public boolean eliminarMedico(String id) {
+        for (int i = 0; i < listMedicos.size(); i++) {
+            if (listMedicos.get(i).getId().equalsIgnoreCase(id)) {
+                listMedicos.remove(i);
+                return true;
             }
         }
-        return flag;
+        return false;
     }
 //====================================================================================================================
 // CRUD Paciente
@@ -156,35 +155,23 @@ public class Hospital {
     return true;
 }
 
-    public Paciente leerPaciente(String nombre) {
+    public Paciente leerPaciente(String id) {
         for (Paciente p : listPacientes) {
-            if (p.getNombre().equalsIgnoreCase(nombre)) {
+            if (p.getId().equalsIgnoreCase(id)) {
                 return p;
             }
         }
         return null;
     }
 
-    public boolean modificarPaciente(Paciente paciente) {
+    public boolean eliminarPaciente(String id) {
         for (int i = 0; i < listPacientes.size(); i++) {
-            if (listPacientes.get(i).getNombre().equalsIgnoreCase(paciente.getNombre())) {
-                listPacientes.set(i, paciente);
+            if (listPacientes.get(i).getId().equalsIgnoreCase(id)) {
+                listPacientes.remove(i);
                 return true;
             }
         }
         return false;
-    }
-
-    public boolean eliminarPaciente(Paciente paciente) {
-        boolean flag = false;
-        for (Paciente p : listPacientes) {
-            if (p.getId().equalsIgnoreCase(paciente.getId())) {
-                listPacientes.remove(p);
-                flag = true;
-                break;
-            }
-        }
-        return flag;
     }
 
 //==================================================================================================================
@@ -208,27 +195,24 @@ public class Hospital {
         }
         return null;
     }
-
-    public boolean modificarCita(Cita cita) {
+    public boolean modificarCita(String id, Cita nuevaCita) {
         for (int i = 0; i < listCitas.size(); i++) {
-            if (listCitas.get(i).getidCita().equalsIgnoreCase(cita.getidCita())) {
-                listCitas.set(i, cita);
+            if (listCitas.get(i).getidCita().equalsIgnoreCase(id)) {
+                listCitas.set(i, nuevaCita);
                 return true;
             }
         }
         return false;
     }
 
-    public boolean eliminarCita(Cita cita) {
-        boolean flag = false;
-        for (Cita c : listCitas) {
-            if (c.getidCita().equalsIgnoreCase(cita.getidCita())) {
-                listCitas.remove(c);
-                flag = true;
-                break;
+    public boolean eliminarCita(String id) {
+        for(int i = 0; i < listCitas.size(); i++) {
+            if (listPacientes.get(i).getId().equalsIgnoreCase(id)) {
+                listCitas.remove(i);
+                return true;
             }
         }
-        return flag;
+        return false;
     }
 
 //==================================================================================================================
@@ -253,10 +237,11 @@ public boolean addMedicamento(Medicamiento medicamento ) {
         return null;
     }
 
-    public boolean modificarMedicamento(Medicamiento medicamento) {
+    public boolean modificarMedicamento(String id, String nuevoNombre, double nuevaDosis) {
         for (int i = 0; i < listMedicamiento.size(); i++) {
-            if (listMedicamiento.get(i).getIdMedicamiento().equalsIgnoreCase(medicamento.getIdMedicamiento())) {
-                listMedicamiento.set(i, medicamento);
+            if (listMedicamiento.get(i).getIdMedicamiento().equalsIgnoreCase(id)) {
+                listMedicamiento.get(i).setNombre(nuevoNombre);
+                listMedicamiento.get(i).setDosis(nuevaDosis);
                 return true;
             }
         }
@@ -265,9 +250,9 @@ public boolean addMedicamento(Medicamiento medicamento ) {
 
     public boolean eliminarMedicamento(Medicamiento medicamiento) {
         boolean flag = false;
-        for (Medicamiento m : listMedicamiento) {
-            if (m.getIdMedicamiento().equalsIgnoreCase(medicamiento.getIdMedicamiento())) {
-                listCitas.remove(m);
+        for (Cita c : listCitas) {
+            if (c.getidCita().equalsIgnoreCase(medicamiento.getIdMedicamiento())) {
+                listCitas.remove(c);
                 flag = true;
                 break;
             }
@@ -320,20 +305,18 @@ public boolean cancelarCitaPorId(String idCita) {
 // Funcionalidades para Pacientes
 
 public boolean crearRegistro(RegistroMedico registroMedico){
-        boolean flag = false;
         for (RegistroMedico r : listRegistro) {
             if (r.getIdRegistro().equals(registroMedico.getIdRegistro())) {
-                return flag;
+                return false;
             }
-            listRegistro.add(registroMedico);
-            flag = true;
         }
-        return flag;
+        listRegistro.add(registroMedico);
+        return true;
 }
 
-public RegistroMedico buscarRegistro(String idRegistro) {
+public RegistroMedico buscarRegistro(String id) {
         for (RegistroMedico r : listRegistro) {
-            if (r.getIdRegistro().equalsIgnoreCase(idRegistro)) {
+            if (r.getIdRegistro().equalsIgnoreCase(id)) {
                 return r;
             }
         }
@@ -354,47 +337,51 @@ public void enviarRecordatorio() {
 //==================================================================================================================
 //Funciones de Médicos
 
-    public boolean crearHistorial(HistorialMedico historial){
+public boolean crearHistorial(HistorialMedico historial){
         for (HistorialMedico r : listHistorial) {
             if (r.getIdHistorialMedico().equals(historial.getIdHistorialMedico())) {
-                return false; // ya existe, no se agrega
+                return false;
             }
         }
-        // Si no encontró duplicados, lo agrega aquí:
         listHistorial.add(historial);
         return true;
-    }
+}
 
-
-public HistorialMedico buscarHistorialMedico(String idHistorialMedico) {
+public HistorialMedico buscarHistorialMedico(String id) {
         for (HistorialMedico r : listHistorial) {
-            if (r.getIdHistorialMedico().equalsIgnoreCase(idHistorialMedico)) {
+            if (r.getIdHistorialMedico().equalsIgnoreCase(id)) {
                 return r;
             }
         }
         return null;
      }
 
-    public HistorialMedico buscarHistorialMedicoPaciente(Paciente paciente) {
-        for (HistorialMedico historial : listHistorial) {
-            Paciente p = historial.getPaciente();
-            if (p != null && p.getId().equalsIgnoreCase(paciente.getId())) {
-                return historial;
-            }
-        }
-        return null;
-    }
-
-
-
 //==================================================================================================================
-//Otro que necesita FX
 
-public void mostrarHistorialMedico(String idHistorialMedico) {
-    HistorialMedico historial = buscarHistorialMedico(idHistorialMedico);
+//Otro que necesita FX
+public void mostrarHistorialMedico(String id) {
+    HistorialMedico historial = buscarHistorialMedico(id);
 
     if (historial != null) {
-        
+        System.out.println("=== Historial Médico ===");
+        System.out.println("ID Historial: " + historial.getIdHistorialMedico());
+        System.out.println("Paciente: " + historial.getPaciente().getNombre());
+
+        List<RegistroMedico> registros = historial.getLista();
+
+        if (registros.isEmpty()) {
+            System.out.println("No hay registros médicos.");
+        } else {
+            System.out.println("Registros Médicos:");
+            for (RegistroMedico registro : registros) {
+                System.out.println("- Fecha: " + registro.getFecha());
+                System.out.println("  Diagnóstico: " + registro.getDiagnostico());
+                System.out.println("  Tratamiento: " + registro.getTratamiento());
+                System.out.println();
+            }
+        }
+    } else {
+        System.out.println("No se encontró historial médico para el ID: " + id);
     }
 }
 
@@ -402,34 +389,33 @@ public void mostrarHistorialMedico(String idHistorialMedico) {
 //Funciones respecto al admin
 
 public boolean agregarSala(Sala sala) {
-    boolean flag = false;
     for (Sala s : listSalas) {
         if (s.getIdSala().equalsIgnoreCase(sala.getIdSala())) {
-            return flag;
+            return false;
         }
     }
     listSalas.add(sala);
-    flag = true;
-    return flag;
+    return true;
 }
+    public boolean modificarSala(Sala nuevaSala) {
+        String id = nuevaSala.getIdSala();
 
-    public boolean modificarSala(Sala sala) {
         for (int i = 0; i < listSalas.size(); i++) {
-            if (listSalas.get(i).getIdSala().equalsIgnoreCase(sala.getIdSala())) {
-                listSalas.set(i, sala);
+            Sala salaExistente = listSalas.get(i);
+            if (salaExistente.getIdSala().equalsIgnoreCase(id)) {
+                listSalas.set(i, nuevaSala);
                 return true;
             }
         }
         return false;
     }
-
     public boolean eliminarSala(Sala sala) {
         return listSalas.removeIf(s -> s.getIdSala().equalsIgnoreCase(sala.getIdSala()));
     }
 
-    public Sala buscarSala(String idSala) {
+    public Sala buscarSala(String id) {
         for (Sala sala : listSalas) {
-            if (sala.getIdSala().equalsIgnoreCase(idSala)) {
+            if (sala.getIdSala().equalsIgnoreCase(id)) {
                 return sala;
             }
         }
@@ -493,10 +479,8 @@ public boolean agregarSala(Sala sala) {
             paciente.setNombre(nuevoNombre);
             paciente.setApellido(nuevoApellido);
             paciente.setTelefono(nuevoTelefono);
-            paciente.setDireccion(nuevaDireccion);
             return true;
         }
         return false;
     }
-
 }

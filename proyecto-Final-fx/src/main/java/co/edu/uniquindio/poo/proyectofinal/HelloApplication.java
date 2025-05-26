@@ -110,7 +110,7 @@ public class HelloApplication extends Application {
         hospital.crearHistorial(historialMedico);
 
 
-        HistorialMedico resultado = hospital.buscarHistorialMedicoPaciente(paciente);
+        HistorialMedico resultado = hospital.buscarHistorialMedico(historialMedico.getIdHistorialMedico());
         if (resultado != null) {
             System.out.println("ID del historial: " + resultado.getIdHistorialMedico());
             List<RegistroMedico> registros = resultado.getLista();
