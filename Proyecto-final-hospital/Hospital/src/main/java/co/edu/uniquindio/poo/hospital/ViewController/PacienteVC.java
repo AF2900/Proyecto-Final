@@ -53,6 +53,9 @@ public class PacienteVC {
     private Button btt_Actualizar;
 
     @FXML
+    private Button btt_CitaMedica;
+
+    @FXML
     private TableColumn<HistorialMedico, String> tbc_CodigoHistorial;
 
     @FXML
@@ -117,6 +120,16 @@ public class PacienteVC {
 
     }
 
+    @FXML
+    void abrirCitaMedica(ActionEvent event) {
+
+        try {
+            app.CitaMedica();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
     @FXML
@@ -167,6 +180,7 @@ public class PacienteVC {
         assert Volver != null : "fx:id=\"Volver\" was not injected: check your FXML file 'Paciente.fxml'.";
         assert btt_Actualizar != null : "fx:id=\"btt_Actualizar\" was not injected: check your FXML file 'Paciente.fxml'.";
         assert btt_Agregar != null : "fx:id=\"btt_Agregar\" was not injected: check your FXML file 'Paciente.fxml'.";
+        assert btt_CitaMedica != null : "fx:id=\"btt_CitaMedica\" was not injected: check your FXML file 'Paciente.fxml'.";
         assert btt_Eliminar != null : "fx:id=\"btt_Eliminar\" was not injected: check your FXML file 'Paciente.fxml'.";
         assert btt_Limpiar != null : "fx:id=\"btt_Limpiar\" was not injected: check your FXML file 'Paciente.fxml'.";
         assert btt_notificacion != null : "fx:id=\"btt_notificacion\" was not injected: check your FXML file 'Paciente.fxml'.";
@@ -375,6 +389,12 @@ public class PacienteVC {
         this.app = app;
     }
 }
+
+
+
+
+
+
 
 
 

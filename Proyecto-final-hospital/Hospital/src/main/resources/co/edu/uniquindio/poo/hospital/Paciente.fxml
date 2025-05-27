@@ -48,8 +48,9 @@
       <Button fx:id="Volver" layoutY="1.0" mnemonicParsing="false" onAction="#Volver" text="Volver" />
       <TextField fx:id="txt_direccion" layoutX="87.0" layoutY="295.0" />
       <Label layoutX="26.0" layoutY="300.0" text="Direccion" />
-      <Button fx:id="btt_notificacion" layoutX="641.0" layoutY="189.0" mnemonicParsing="false" onAction="#abrirNotificacion" prefHeight="26.0" prefWidth="68.0" text="Notificacion" />
+      <Button fx:id="btt_notificacion" layoutX="639.0" layoutY="167.0" mnemonicParsing="false" onAction="#abrirNotificacion" prefHeight="26.0" prefWidth="130.0" text="Notificacion" />
       <Label layoutX="22.0" layoutY="259.0" text="Telefono" />
       <TextField fx:id="txt_Telefono" layoutX="87.0" layoutY="254.0" />
+      <Button fx:id="btt_CitaMedica" layoutX="639.0" layoutY="213.0" mnemonicParsing="false" onAction="#abrirCitaMedica" prefHeight="26.0" prefWidth="102.0" text="Cita Medica" />
     </children>
 </AnchorPane>
