@@ -1,7 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="254a0dcd-286c-4a96-a759-6c192550c2d5" name="Changes" comment="" />
+    <list default="true" id="254a0dcd-286c-4a96-a759-6c192550c2d5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto-Final-fx/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto-Final-fx/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto-Final-fx/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto-Final-fx/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/Controller/PacienteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Administrador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Cita.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Especialidad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/HistorialMedico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Horario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Hospital.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Jornada.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/ListaEstado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Medicamiento.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Medico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Notificacion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Paciente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Persona.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/RegistroMedico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/model/Sala.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/viewController/InicioViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/viewController/MenuPersonaViewController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/co/edu/uniquindio/poo/proyectofinal/viewController/PacienteVC.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto-Final-fx/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/CSS/Color.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/ChatGPT Image 25 may 2025, 15_14_49.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/EliminacionDeMedicoViewController.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/EliminacionDePacientesViewController.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/IngresoDeRegistrosMédicosViewController.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/Medicamento.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/MenuCita.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/ModificarDatosPacientesViewController.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/Paciente.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/RegistroDeMedicosViewController.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/actualizacionDatosDeMedicos.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/inicio.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/menuPersona.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/FXML/registroDePacientesViewController.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/main/resources/co/edu/uniquindio/poo/proyectofinal/inicio.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/test/java/co/edu/uniquindio/poo/proyectofinal/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/test/java/co/edu/uniquindio/poo/proyectofinal/HospitalTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/src/test/java/co/edu/uniquindio/poo/proyectofinal/PacienteTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/CSS/Color.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/FXML/Paciente.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/FXML/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/FXML/inicio.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/FXML/menuPersona.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/HelloApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/HelloController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Administrador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Cita.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Especialidad.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/HistorialMedico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Horario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Hospital.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Jornada.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/ListaEstado.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Medicamiento.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Medico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Notificacion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Paciente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Persona.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/RegistroMedico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/model/Sala.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/viewController/InicioViewController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/viewController/MenuPersonaViewController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/co/edu/uniquindio/poo/proyectofinal/viewController/PacienteVC.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/proyecto-Final-fx/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/test-classes/co/edu/uniquindio/poo/proyectofinal/AppTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/test-classes/co/edu/uniquindio/poo/proyectofinal/HospitalTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proyecto-Final-fx/target/test-classes/co/edu/uniquindio/poo/proyectofinal/PacienteTest.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,17 +115,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/Gonzo/Desktop/Programacion-1/Proyecto-Final",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/Gonzo/Desktop/Programacion-1/Proyecto-Final&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -61,6 +154,13 @@
       <workItem from="1748061429246" duration="10000" />
       <workItem from="1748061446158" duration="2000" />
       <workItem from="1748061490921" duration="7000" />
+      <workItem from="1748363267916" duration="24000" />
+      <workItem from="1748364403369" duration="77000" />
+      <workItem from="1748365863449" duration="95000" />
+      <workItem from="1748367874299" duration="626000" />
+      <workItem from="1748378854925" duration="104000" />
+      <workItem from="1748379031618" duration="865000" />
+      <workItem from="1748380031477" duration="142000" />
     </task>
     <servers />
   </component>
