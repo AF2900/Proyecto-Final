@@ -3,7 +3,7 @@ package co.edu.uniquindio.poo.hospital.Model;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class HistorialMedico  {
+public class HistorialMedico implements ClonableHistorialMedico {
     private String codigoHistorial;
     private Collection<Consulta> consultas;
 
@@ -107,7 +107,19 @@ public class HistorialMedico  {
 
     }
 
+    /**
+     * Metodo que clona y devuelve una copia exacta del objeto "HistorialMedico".
+     * @return  Una copia clonada del objeto HistorialMedico.
+     */
 
+    @Override
+    public HistorialMedico clone() {
+        try {
+            return (HistorialMedico) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException("El Historial Medico no puede ser Cloneable");
+        }
+    }
 
     /**
      * Metodo que devuelve al objeto de HistorialMedico.

@@ -242,7 +242,7 @@ public class DoctorVC {
     private void initDataBinding() {
         tbc_Nombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
         tbc_Apellido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getApellido()));
-        tbc_Cedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
+        tbc_Cedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
         tbc_telefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTelefono()));
         tbc_Edad.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getEdad()));
         tbc_Especialidad.setCellValueFactory(celldata -> {
@@ -286,7 +286,7 @@ public class DoctorVC {
             // Asignar valores a los campos de texto
             txt_Nombre.setText(doctor.getNombre());
             txt_Apellido.setText(doctor.getApellido());
-            txt_Cedula.setText(doctor.getCedula());
+            txt_Cedula.setText(doctor.getId());
             txt_Edad.setText(String.valueOf(doctor.getEdad()));
             txt_telefono.setText(doctor.getTelefono());
             cmbx_Especialidad.getSelectionModel().select(doctor.getEspecialidad());
@@ -312,17 +312,17 @@ public class DoctorVC {
      */
 
     private Doctor buildDoctor() {
-        int edad = Integer.parseInt(txt_Edad.getText());
-        Doctor doctor = new Doctor(
-                txt_Nombre.getText(),
-                txt_Apellido.getText(),
-                txt_Cedula.getText(),
-                edad,
-                txt_telefono.getText(),
-                cmbx_Especialidad.getSelectionModel().getSelectedItem()
-        );
-        return doctor;
-    }
+    int edad = Integer.parseInt(txt_Edad.getText());
+    Doctor doctor = new Doctor(
+            txt_Nombre.getText(),
+            txt_Apellido.getText(),
+            txt_Cedula.getText(),
+            txt_telefono.getText(), 
+            edad,
+            cmbx_Especialidad.getSelectionModel().getSelectedItem()
+    );
+    return doctor;
+}
 
 
     /**
@@ -347,7 +347,7 @@ public class DoctorVC {
     private void actualizarDoctor() {
 
         if (selectedDoctor != null &&
-                doctorController.actualizarDoctor(selectedDoctor.getCedula(), buildDoctor())) {
+                doctorController.actualizarDoctor(selectedDoctor.getId(), buildDoctor())) {
 
             int index = listaDoctor.indexOf(selectedDoctor);
             if (index >= 0) {

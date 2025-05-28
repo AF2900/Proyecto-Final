@@ -88,6 +88,18 @@ public class HistorialMedicoController {
         return hospital.getConsultas();
     }
 
-
-
+    /**
+     * Clona un historial médico y lo agrega al hospital.
+     *
+     * @param historial historial médico a clonar.
+     * @return true si el historial clonado fue agregado correctamente, false en caso contrario.
+     */
+    public boolean clonarHistorial(HistorialMedico historial) {
+        if (historial == null) {
+            System.err.println("Error: No se puede clonar un historial médico nulo.");
+            return false;
+        }
+        HistorialMedico historialClonado = historial.clone();
+        return hospital.agregarHistorial(historialClonado);
+    }
 }

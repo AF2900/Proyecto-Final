@@ -1,13 +1,26 @@
 package co.edu.uniquindio.poo.hospital.Model;
+//Terminada
 
+import java.util.LinkedList;
 public class Doctor extends Persona {
 
-    private Especialidad especialidad;
+  private LinkedList<Paciente> listPacientes;
+  private Especialidad especialidad;
 
-    public Doctor(String nombre, String Apellido, String cedula ,int edad, String telefono, Especialidad especialidad) {
-        super(nombre,Apellido,cedula, edad, telefono);
-        this.especialidad = especialidad;
-    }
+
+  public Doctor(String nombre, String apellido, String id, String telefono, int edad, Especialidad especialidad) {
+      super(nombre, apellido, id, telefono, edad);
+    this.especialidad = especialidad;
+
+  }
+
+  public LinkedList<Paciente> getListPacientes() {
+    return listPacientes;
+  }
+
+  public void setListPacientes(LinkedList<Paciente> listPacientes) {
+    this.listPacientes = listPacientes;
+  }
 
     public Especialidad getEspecialidad() {
         return especialidad;
@@ -15,13 +28,5 @@ public class Doctor extends Persona {
 
     public void setEspecialidad(Especialidad especialidad) {
         this.especialidad = especialidad;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Doctor{" +
-                "especialidad=" + especialidad +
-                '}';
     }
 }

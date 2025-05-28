@@ -67,5 +67,14 @@ public class BienvenidoVC {
         assert btt_Otros != null : "fx:id=\"btt_Otros\" was not injected: check your FXML file 'Bienvenido.fxml'.";
 
     }
+
+    @FXML
+    private void abrirMedicamento(ActionEvent event) {
+        try {
+            app.Medicamento();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 

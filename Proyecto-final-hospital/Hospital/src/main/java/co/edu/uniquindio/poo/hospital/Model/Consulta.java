@@ -10,7 +10,14 @@ public class Consulta {
     private CitaMedica citaMedica;
     private  Medicamento medicamento;
 
-
+    /**
+     * Metodo Constructor
+     * @param idConsulta
+     * @param fechaConsulta
+     * @param diagnosticoConsulta
+     * @param citaMedica
+     * @param medicamento
+     */
     public Consulta(String idConsulta, LocalDate fechaConsulta, String diagnosticoConsulta, CitaMedica citaMedica , Medicamento medicamento) {
         this.idConsulta = idConsulta;
         this.fechaConsulta = fechaConsulta;
@@ -70,3 +77,4 @@ public class Consulta {
                 '}';
     }
 }
+

@@ -250,16 +250,60 @@ public class CitaMedicaVC {
      *Metodo que configura la vinculacion de datos en las tablas
      */
     private void initDataBinding() {
-        tbc_CodigoCita.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCodigoCita()));
-        tbc_FechaCita.setCellValueFactory(new PropertyValueFactory<>("fechaCita"));
-        tbc_HoraCita.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getHoraCita()));
-        tbc_nombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDoctor() != null ? cellData.getValue().getDoctor().getNombre() : cellData.getValue().getPaciente().getNombre()));
-        tbc_cedula.setCellValueFactory(cellData ->  new SimpleStringProperty(cellData.getValue().getDoctor() != null ? cellData.getValue().getDoctor().getCedula() : cellData.getValue().getPaciente().getCedula()));
-        tbc_nombrePaciente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        tbc_cedulaPaciente.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
-        tbc_nombreDoctor.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        tbc_cedulaDoctor.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
-    }
+    tbc_CodigoCita.setCellValueFactory(cellData -> 
+        new SimpleStringProperty(
+            cellData.getValue().getCodigoCita() != null ? cellData.getValue().getCodigoCita() : "Sin código"
+        )
+    );
+
+    tbc_FechaCita.setCellValueFactory(new PropertyValueFactory<>("fechaCita"));
+
+    tbc_HoraCita.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getHoraCita()));
+
+    tbc_nombre.setCellValueFactory(cellData -> {
+        if (cellData.getValue().getDoctor() != null && cellData.getValue().getDoctor().getNombre() != null) {
+            return new SimpleStringProperty(cellData.getValue().getDoctor().getNombre());
+        } else if (cellData.getValue().getPaciente() != null && cellData.getValue().getPaciente().getNombre() != null) {
+            return new SimpleStringProperty(cellData.getValue().getPaciente().getNombre());
+        } else {
+            return new SimpleStringProperty("Sin nombre");
+        }
+    });
+
+    tbc_cedula.setCellValueFactory(cellData -> {
+        if (cellData.getValue().getDoctor() != null && cellData.getValue().getDoctor().getId() != null) {
+            return new SimpleStringProperty(cellData.getValue().getDoctor().getId());
+        } else if (cellData.getValue().getPaciente() != null && cellData.getValue().getPaciente().getId() != null) {
+            return new SimpleStringProperty(cellData.getValue().getPaciente().getId());
+        } else {
+            return new SimpleStringProperty("Sin cédula");
+        }
+    });
+
+    tbc_nombrePaciente.setCellValueFactory(cellData -> 
+        new SimpleStringProperty(
+            cellData.getValue().getNombre() != null ? cellData.getValue().getNombre() : "Sin nombre"
+        )
+    );
+
+    tbc_cedulaPaciente.setCellValueFactory(cellData -> 
+        new SimpleStringProperty(
+            cellData.getValue().getId() != null ? cellData.getValue().getId() : "Sin cédula"
+        )
+    );
+
+    tbc_nombreDoctor.setCellValueFactory(cellData -> 
+        new SimpleStringProperty(
+            cellData.getValue().getNombre() != null ? cellData.getValue().getNombre() : "Sin nombre"
+        )
+    );
+
+    tbc_cedulaDoctor.setCellValueFactory(cellData -> 
+        new SimpleStringProperty(
+            cellData.getValue().getId() != null ? cellData.getValue().getId() : "Sin cédula"
+        )
+    );
+}
 
     /**
      * metodo que escucha los cambios en la selecion de citas medicas y actauliza la variable selectedCitaMedica

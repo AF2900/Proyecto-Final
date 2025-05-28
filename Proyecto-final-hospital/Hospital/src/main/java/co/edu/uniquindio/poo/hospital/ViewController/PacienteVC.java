@@ -53,9 +53,6 @@ public class PacienteVC {
     private Button btt_Actualizar;
 
     @FXML
-    private Button btt_CitaMedica;
-
-    @FXML
     private TableColumn<HistorialMedico, String> tbc_CodigoHistorial;
 
     @FXML
@@ -120,16 +117,6 @@ public class PacienteVC {
 
     }
 
-    @FXML
-    void abrirCitaMedica(ActionEvent event) {
-
-        try {
-            app.CitaMedica();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 
 
     @FXML
@@ -180,7 +167,6 @@ public class PacienteVC {
         assert Volver != null : "fx:id=\"Volver\" was not injected: check your FXML file 'Paciente.fxml'.";
         assert btt_Actualizar != null : "fx:id=\"btt_Actualizar\" was not injected: check your FXML file 'Paciente.fxml'.";
         assert btt_Agregar != null : "fx:id=\"btt_Agregar\" was not injected: check your FXML file 'Paciente.fxml'.";
-        assert btt_CitaMedica != null : "fx:id=\"btt_CitaMedica\" was not injected: check your FXML file 'Paciente.fxml'.";
         assert btt_Eliminar != null : "fx:id=\"btt_Eliminar\" was not injected: check your FXML file 'Paciente.fxml'.";
         assert btt_Limpiar != null : "fx:id=\"btt_Limpiar\" was not injected: check your FXML file 'Paciente.fxml'.";
         assert btt_notificacion != null : "fx:id=\"btt_notificacion\" was not injected: check your FXML file 'Paciente.fxml'.";
@@ -256,12 +242,18 @@ public class PacienteVC {
     private void initDataBinding() {
         tbc_Nombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
         tbc_Apellido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getApellido()));
-        tbc_Cedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
+        tbc_Cedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId()));
         tbc_Edad.setCellValueFactory(cellData -> new SimpleObjectProperty(cellData.getValue().getEdad()));
         tbc_Telefono.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTelefono()));
         tbc_direccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDireccion()));
         tbc_CodigoHistorial.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCodigoHistorial()));
-        tbc_Historial.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getHistorialMedico().getCodigoHistorial()));
+        tbc_Historial.setCellValueFactory(cellData -> {
+    if (cellData.getValue().getHistorialMedico() != null) {
+        return new SimpleStringProperty(cellData.getValue().getHistorialMedico().getCodigoHistorial());
+    } else {
+        return new SimpleStringProperty("Sin historial");  // o lo que quieras mostrar si es null
+    }
+        });
     }
 
     /**
@@ -292,7 +284,7 @@ public class PacienteVC {
         if (paciente != null) {
             txt_Nombre.setText(paciente.getNombre());
             txt_Apellido.setText(paciente.getApellido());
-            txt_Cedula.setText(paciente.getCedula());
+            txt_Cedula.setText(paciente.getId());
             txt_Edad.setText(String.valueOf(paciente.getEdad()));
             txt_Telefono.setText(paciente.getTelefono());
             txt_direccion.setText(paciente.getDireccion());
@@ -316,20 +308,18 @@ public class PacienteVC {
      * @return
      */
     private Paciente buildPaciente() {
-        int edad= Integer.parseInt(txt_Edad.getText());
-        Paciente paciente = new Paciente(
-                txt_Nombre.getText(),
-                txt_Apellido.getText(),
-                txt_Cedula.getText(),
-                edad,
-                txt_Telefono.getText(),
-                txt_direccion.getText(),
-                selectedHistorialMedico
-
-        );
-        return paciente;
-
-    }
+    int edad = Integer.parseInt(txt_Edad.getText());
+    Paciente paciente = new Paciente(
+        txt_Nombre.getText(),
+        txt_Apellido.getText(),
+        txt_Cedula.getText(),
+        txt_Telefono.getText(),
+        txt_direccion.getText(),
+        edad,
+        selectedHistorialMedico
+    );
+    return paciente;
+}
 
 
     /**
@@ -349,7 +339,7 @@ public class PacienteVC {
     private void actualizarPaciente() {
 
         if (selectedPaciente != null &&
-                pacienteController.actualizarPaciente(selectedPaciente.getCedula(), buildPaciente())) {
+                pacienteController.actualizarPaciente(selectedPaciente.getId(), buildPaciente())) {
 
             int index = listaPaciente.indexOf(selectedPaciente);
             if (index >= 0) {
@@ -389,12 +379,6 @@ public class PacienteVC {
         this.app = app;
     }
 }
-
-
-
-
-
-
 
 
 

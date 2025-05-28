@@ -2,17 +2,14 @@ package co.edu.uniquindio.poo.hospital.Model;
 
 public class Paciente extends Persona {
     private String direccion;
-
     public HistorialMedico historialMedico;
 
-
-    public Paciente(String nombre, String Apellido, String cedula ,int edad, String telefono,String direccion, HistorialMedico historialMedico) {
-        super(nombre, Apellido, cedula,edad,telefono);
+    public Paciente(String nombre, String apellido, String id, String telefono, String direccion,int edad, HistorialMedico historialMedico) {
+        super(nombre, apellido, id, telefono, edad);
         this.direccion = direccion;
-
         this.historialMedico = historialMedico;
-    }
 
+    }
     public HistorialMedico getHistorialMedico() {
         return historialMedico;
     }
@@ -24,16 +21,7 @@ public class Paciente extends Persona {
     public String getDireccion() {
         return direccion;
     }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    @Override
-    public String toString() {
-        return "Paciente{" +
-                "historialMedico=" + historialMedico +
-                ", direccion='" + direccion + '\'' +
-                '}';
+    public void setDireccion(String direccion){
+        this.direccion=direccion;
     }
 }

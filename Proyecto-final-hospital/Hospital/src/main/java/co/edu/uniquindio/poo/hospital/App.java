@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 public class App extends Application {
-    public static Hospital hospital = new Hospital("San Juan de Dios");
+    public static Hospital hospital = new Hospital("Cementerio Uniquindiano");
     private Stage primaryStage;
 
     @Override
@@ -203,7 +203,7 @@ public class App extends Application {
 
 
     public void inicializarData() {
-        Doctor doctor = new Doctor("1455","Ramiro","gonzalez",47,"3003057879",Especialidad.CARDIOLOGIA);
+        Doctor doctor = new Doctor("Ratchet", "Bot", "A00001", "Cybertron", 200000, Especialidad.MEDICINA_GENERAL);
         hospital.agregarDoctor(doctor);
         Medicamento medicamento= new Medicamento("4554","acteaminofen",10.0);
         hospital.agregarMedicamento(medicamento);

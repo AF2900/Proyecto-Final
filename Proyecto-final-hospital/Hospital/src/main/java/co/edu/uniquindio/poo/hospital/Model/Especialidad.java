@@ -1,8 +1,15 @@
 package co.edu.uniquindio.poo.hospital.Model;
 
+//completada
+
 public enum Especialidad {
-    PEDIATRIA, CARDIOLOGIA,
-    NEUMOLOGIA, GERIATRIA,
-    MEDICOGENERAL, GINECOLOGIA,
-    PSIQUIATRIA
+    MEDICINA_GENERAL,
+    PEDIATRIA,
+    ODONTOLOGIA,
+    CARDIOLOGIA,
+    PSIQUIATRIA,
+    DERMATOLOGIA,
+    NEUROLOGIA,
+    GINECOLOGIA,
+    UROLOGIA;
 }

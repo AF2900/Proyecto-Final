@@ -98,7 +98,7 @@ public class Hospital {
      */
     public boolean verificarPaciente(String cedula) {
         for (Paciente paciente : pacientes) {
-            if (cedula.equals(paciente.getCedula())) {
+            if (cedula.equals(paciente.getId())) {
                 return false;
             }
         }
@@ -115,7 +115,7 @@ public class Hospital {
 
     public boolean agregarPaciente(Paciente paciente) {
         boolean centinela = false;
-        boolean esUnico = this.verificarPaciente(paciente.getCedula());
+        boolean esUnico = this.verificarPaciente(paciente.getId());
         if (esUnico) {
             pacientes.add(paciente);
             centinela = true;
@@ -137,7 +137,7 @@ public class Hospital {
     public boolean eliminarPaciente(String cedula) {
         boolean centinela = false;
         for (Paciente paciente : pacientes) {
-            if (paciente.getCedula().equals(cedula)) {
+            if (paciente.getId().equals(cedula)) {
                 pacientes.remove(paciente);
                 centinela = true;
                 System.out.println("Paciente eliminado exitosamente");
@@ -157,20 +157,17 @@ public class Hospital {
      */
 
     public boolean actualizarPaciente(String cedula, Paciente actualizado) {
-        boolean centinela = false;
-
         for (Paciente paciente : this.pacientes) {
-            if (paciente.getCedula().equals(cedula)) {
-                paciente.setCedula(actualizado.getCedula());
+            if (paciente.getId().equals(cedula)) {
+                paciente.setId(actualizado.getId());
                 paciente.setNombre(actualizado.getNombre());
                 paciente.setApellido(actualizado.getApellido());
-                paciente.setEdad(actualizado.getEdad());
+                paciente.setTelefono(actualizado.getTelefono());
                 paciente.setHistorialMedico(actualizado.getHistorialMedico());
-                centinela = true;
-                break;
+                return true;
             }
         }
-        return centinela;
+        return false;
     }
 
     /**
@@ -182,7 +179,7 @@ public class Hospital {
 
     public boolean verificarDoctor(String cedula) {
         for (Doctor doctor : this.doctores) {
-            if (cedula.equals(doctor.getCedula())) {
+            if (cedula.equals(doctor.getId())) {
                 return false;
             }
         }
@@ -199,7 +196,7 @@ public class Hospital {
 
     public boolean agregarDoctor(Doctor doctor) {
         boolean centinela = false;
-        boolean esUnico = this.verificarDoctor(doctor.getCedula());
+        boolean esUnico = this.verificarDoctor(doctor.getId());
         if (esUnico) {
             this.doctores.add(doctor);
             centinela = true;
@@ -221,7 +218,7 @@ public class Hospital {
     public boolean eliminarDoctor(String cedula) {
         boolean centinela = false;
         for (Doctor doctor : this.doctores) {
-            if (doctor.getCedula().equals(cedula)) {
+            if (doctor.getId().equals(cedula)) {
                 this.doctores.remove(doctor);
                 centinela = true;
                 System.out.println("Doctor eliminado exitosamente");
@@ -240,23 +237,18 @@ public class Hospital {
      */
 
     public boolean actualizarDoctor(String cedula, Doctor actualizado) {
-        boolean centinela = false;
-
         for(Doctor doctor : doctores) {
-            if (doctor.getCedula().equals(cedula)) {
-                doctor.setCedula(actualizado.getCedula());
+            if (doctor.getId().equals(cedula)) {
+                doctor.setId(actualizado.getId());
                 doctor.setNombre(actualizado.getNombre());
                 doctor.setApellido(actualizado.getApellido());
-                doctor.setEdad(actualizado.getEdad());
+                doctor.setTelefono(actualizado.getTelefono());
                 doctor.setEspecialidad(actualizado.getEspecialidad());
-                centinela = true;
-                break;
+                return true;
             }
         }
-
-        return centinela;
+        return false;
     }
-
 
     /**
      * Metodo que verifica la existencia de una consulta.
@@ -408,7 +400,7 @@ public class Hospital {
         for(Medicamento medicamento : medicamentos) {
             if (medicamento.getIdMedicamento().equals(idMedicamento)) {
                 medicamento.setIdMedicamento(actualizado.getIdMedicamento());
-                medicamento.setNombreMedicamento(actualizado.getNombreMedicamento());
+                medicamento.setNombre(actualizado.getNombre());
                 medicamento.setDosis(actualizado.getDosis());
                 centinela = true;
                 break;
@@ -542,15 +534,11 @@ public class Hospital {
      * @return true si se cancelo la cita medica exitosamente, false si no se encontró en la lista.
      */
     public boolean cancelarCita(String codigoCita) {
-        for(CitaMedica citaMedica : citaMedicas) {
-            if (citaMedica.getCodigoCita().equals(codigoCita)) {
-                citaMedicas.remove(citaMedica);
-                System.out.println("Cita cancelada exitosamente");
-                break;
-            }
+        boolean eliminado = citaMedicas.removeIf(citaMedica -> citaMedica.getCodigoCita().equals(codigoCita));
+        if (eliminado) {
+            System.out.println("Cita cancelada exitosamente");
         }
-
-        return false;
+        return eliminado;
     }
 
 
@@ -575,94 +563,6 @@ public class Hospital {
             }
         }
         return centinela;
-    }
-
-
-    /**
-     * Metodo que verifica si el nombre de un paciente contiene vocales repetidas en el nombre.
-     * @param cedula
-     * @return true si el nombre del paciente tiene una vocal repetida, false en caso contrario o si el paciente no existe.
-     */
-
-    public boolean pacienteTieneVocalDoble(String cedula) {
-        for (Paciente paciente : pacientes) {
-            if (paciente.getCedula().equals(cedula)) {
-                String nombre = paciente.getNombre().toLowerCase();
-                boolean tieneDobleVocal = false;
-                    for (int i = 0; i < nombre.length(); i++) {
-                        char vocal = nombre.charAt(i);
-                        if (vocal == 'a' || vocal == 'e' || vocal == 'i' || vocal == 'o' || vocal == 'u') {
-                            for (int j = i + 1; j < nombre.length(); j++) {
-                                if (nombre.charAt(j) == vocal) {
-                                    tieneDobleVocal = true;
-                                    break;
-                                }
-                            }
-                        }
-                        if (tieneDobleVocal) {
-                            return true;
-                        }
-                    }
-                    return false;
-                }
-            }
-            return false;
-        }
-
-    /**
-     * Lista los pacientes cuyo nombre es un palíndromo
-     */
-
-    public void listarPacientesPalindromos() {
-        boolean hayPalindromos = false;
-        for (Paciente paciente : pacientes) {
-            String nombre = paciente.getNombre().toLowerCase().replaceAll(" ", "");
-            int longitud = nombre.length();
-            boolean esPalindromo = true;
-
-            for (int i = 0; i < longitud / 2; i++) {
-                if (nombre.charAt(i) != nombre.charAt(longitud - i - 1)) {
-                    esPalindromo = false;
-                    break;
-                }
-            }
-
-            if (esPalindromo) {
-                System.out.println("Paciente con nombre palíndromo: " + paciente.getNombre());
-                hayPalindromos = true;
-            }
-        }
-
-        if (!hayPalindromos) {
-            System.out.println("No hay pacientes con nombres palíndromos.");
-        }
-    }
-
-
-    /**
-     * Metodo que lista todas las citas médicas programadas para una fecha específica.
-     * @param fecha
-     * Si hay citas programadas, se imprimen los detalles de cada una.
-     * Si no hay citas en esa fecha, se imprime un mensaje indicándolo.
-     */
-
-    public void listarCitasPorFecha(LocalDate fecha) {
-        System.out.println("Citas programadas para la fecha " + fecha + ":");
-        boolean hayCitas = false;
-
-        for (CitaMedica cita : citaMedicas) { // Se usa la colección correcta
-            if (cita.getFechaCita().equals(fecha)) {
-                System.out.println("Código: " + cita.getCodigoCita() +
-                        ", Hora: " + cita.getHoraCita() +
-                        ", Paciente: " + cita.getPaciente().getNombre() +
-                        ", Doctor: " + cita.getDoctor().getNombre());
-                hayCitas = true;
-            }
-        }
-
-        if (!hayCitas) {
-            System.out.println("No hay citas para esta fecha.");
-        }
     }
 
 
